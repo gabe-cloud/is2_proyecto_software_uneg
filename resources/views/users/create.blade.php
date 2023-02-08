@@ -1,5 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.app') <!-- Se exporta la vista layouts-->
 
+<!-- Esta vista crea un menu para crear un nuevo usuario, a esta vista se llega desde un boton de crear usuario del archivo en users/index-->
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">

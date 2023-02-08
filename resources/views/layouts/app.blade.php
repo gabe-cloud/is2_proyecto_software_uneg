@@ -1,3 +1,6 @@
+<!-- Es el header para las vistas lo pueden modificar como quieran los de front, ya que es un header y es llamado en todas las vistas
+les recomiendo llamen al css que elaboren y asi el css influye en todas las vistas que exporten el layouts-->
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>

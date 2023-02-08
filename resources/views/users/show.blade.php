@@ -1,5 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.app') <!-- Se exporta la vista layouts-->
 
+<!-- Vista se encarga de mostrar los datos de un usuario en espeficico segun el dato sacado de users/index.blade.php-->
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">

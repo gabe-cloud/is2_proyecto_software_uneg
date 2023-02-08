@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.app') <!-- Se exporta la vista layouts-->
 
-@section('content')
+@section('content')  <!-- Vista para editar usuarios-->
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
@@ -25,7 +25,7 @@
 @endif
 
 
-{!! Form::model($user, ['method' => 'PATCH','route' => ['users.update', $user->id]]) !!}
+{!! Form::model($user, ['method' => 'PATCH','route' => ['users.update', $user->id]]) !!} <!-- Enruta a la direccion de backend-->
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">

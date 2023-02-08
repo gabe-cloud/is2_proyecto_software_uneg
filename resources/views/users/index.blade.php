@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.app') <!-- Se exporta la vista layouts-->
 
-@section('content')
+<!-- Vista se encarga de mostrar todos los datos los usuarios registrados en una table-->
+@section('content')  
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
@@ -29,7 +30,7 @@
         <th width="280px">Acciones</th>
     </tr>
     <tbody>
-        @foreach ($data as $key => $user)
+        @foreach ($data as $key => $user) <!--Funciona como un for-->
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $user->name }}</td>
@@ -41,7 +42,7 @@
                         @endforeach
                     @endif
                 </td>
-                <td>
+                <td> <!-- Botones que estan en la tabla-->
                     <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Mostrar</a>
                     <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Editar</a>
                         {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}

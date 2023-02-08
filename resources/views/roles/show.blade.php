@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.app')  <!-- Se exporta la vista layouts-->
+
+ <!-- Esta vista no modifiquen sus rutas ya esta lista, lo que si pueden los de Front es mejorar la visualización mediante css o
+como prefieran.-->
 
 @section('content')
 <div class="row">
