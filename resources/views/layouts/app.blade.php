@@ -47,7 +47,8 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
                         @else
                         <li><a class="nav-link" href="{{ route('users.index') }}">Gestión de Usuarios</a></li>
                         <li><a class="nav-link" href="{{ route('roles.index') }}">Gestión de Roles</a></li>
-                        <li><a class="nav-link" href="{{ route('products.index') }}">Gestión de Productos</a></li>    
+                        <li><a class="nav-link" href="{{ route('products.index') }}">Gestión de Productos</a></li>
+                        <li><a class="nav-link" href="{{ route('people.index') }}">Gestión de Personas</a></li>       
                             <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}

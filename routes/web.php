@@ -6,6 +6,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PersonController;
+use App\Http\Controllers\ProfessorController;
+use App\Http\Controllers\CoordinatorController;
+use App\Http\Controllers\CareerController;
+use App\Http\Controllers\ScheduleController;
   
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +30,17 @@ Route::get('/', function () {
 Auth::routes();
   
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-  
+ 
+/*El metodo resource es lo mismo que llamar a los otros metodos get post etc*/
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
+    Route::resource('people', PersonController::class);
+    Route::resource('professors', ProfessorController::class);
+    Route::resource('coordinators', CoordinatorController::class);
+    Route::resource('careers', CareerController::class);
+    Route::resource('schedules', ScheduleController::class);
 });
 Auth::routes();
 
