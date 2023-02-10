@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Semesterscontrol extends Model
+class Student extends Model
 {
     use HasFactory;
+    
+    protected $table = 'students';
 
     protected $fillable = [
         'id',
@@ -17,7 +19,6 @@ class Semesterscontrol extends Model
         'status'
     ];
 
-    protected $table = 'students';
     
     public function inscripcion_estudiante(){
         return $this->hasMany('App\Models\Incription', 'student_id');

@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Course;
 use App\Models\Incription;
-use App\Models\student;
+use App\Models\Student;
 use App\Models\Controls_incription;
 use App\Models\User;
 use App\Models\Section;
