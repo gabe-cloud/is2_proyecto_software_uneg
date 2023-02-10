@@ -1,3 +1,6 @@
+@extends('layouts.app') <!-- Se exporta la vista layouts-->
+
+@section('content')
 <div class="">
         
     <h1>Inscripciones 2023</h1>
@@ -35,3 +38,12 @@
     </div>
     
 </div>
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-right">
+            <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
+        </div>
+    </div>
+</div>
+
+@endsection

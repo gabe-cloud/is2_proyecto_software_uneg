@@ -1,3 +1,6 @@
+@extends('layouts.app') <!-- Se exporta la vista layouts-->
+
+@section('content')
 <div>
     @if(isset($message))
         <p>{{$message}}</p>
@@ -20,3 +23,12 @@
         </form>
     @endif
 </div>
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-right">
+            <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
+        </div>
+    </div>
+</div>
+
+@endsection
