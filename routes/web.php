@@ -11,7 +11,8 @@ use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\CoordinatorController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\ScheduleController;
-  
+use App\Http\Controllers\ProfessorScoringController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,6 +42,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('coordinators', CoordinatorController::class);
     Route::resource('careers', CareerController::class);
     Route::resource('schedules', ScheduleController::class);
+    Route::resource('course-scores', ProfessorScoringController::class);
 });
 Auth::routes();
 
