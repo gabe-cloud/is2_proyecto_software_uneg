@@ -12,6 +12,7 @@ use App\Http\Controllers\CoordinatorController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\IncriptionsController;
+use App\Http\Controllers\ScoreController;
   
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,6 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
-    Route::resource('products', ProductController::class);
     Route::resource('people', PersonController::class);
     Route::resource('professors', ProfessorController::class);
     Route::resource('coordinators', CoordinatorController::class);
@@ -49,7 +49,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('inscripciones/adicionar', [IncriptionsController::class,'adicionar'])->name('inscripciones.adicion');
     Route::post('inscripciones/update-seccion', [IncriptionsController::class,'seccion_ca'])->name('inscripciones.update_seccion');
     Route::post('inscripciones/save_adicion', [IncriptionsController::class,'save_adicion'])->name('inscripciones.save_adicion');
-
+    //Rutas de horarios
+    Route::get('horarios/mi_horario', [ScheduleController::class,'horario_ins'])->name('horario.mi_horario');
+    //Rutas notas
+    Route::get('notas', [ScoreController::class,'index'])->name('notas.index');
+    Route::get('notas/descripcion/{id}', [ScoreController::class,'ver_notas'])->name('notas.ver');
+    
 });
 Auth::routes();
 

@@ -17,4 +17,17 @@ class Score extends Model
         'score_date'  
     ];
 
+
+    protected $table = 'scores';
+
+    
+    public function asignatura_nota(){
+        return $this->belongsTo('App\Models\Course', 'course_id');
+    }
+
+    
+    public function studiante_nota(){
+        return $this->belongsTo('App\Models\Student', 'student_id');
+    }
+
 }

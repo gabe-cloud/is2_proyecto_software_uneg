@@ -31,7 +31,11 @@ class PermissionTableSeeder extends Seeder
            'incription-list',
            'incription-create',
            'incription-edit',
-           'incription-delete'
+           'incription-delete',
+           'schedule-list',
+           'schedule-create',
+           'schedule-edit',
+           'schedule-delete'
         ];
       
         foreach ($permissions as $permission) {
