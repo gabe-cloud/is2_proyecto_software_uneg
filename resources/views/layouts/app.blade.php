@@ -45,13 +45,6 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
                                 </li>
                             @endif
                         @else
-                        <li><a class="nav-link" href="{{ route('users.index') }}">Gestión de Usuarios</a></li>
-                        <li><a class="nav-link" href="{{ route('roles.index') }}">Gestión de Roles</a></li>
-                        <li><a class="nav-link" href="{{ route('products.index') }}">Gestión de Productos</a></li>
-                        <li><a class="nav-link" href="{{ route('people.index') }}">Gestión de Personas</a></li> 
-                        
-                        <li><a class="nav-link" href="{{ route('incriptions.index') }}">Ver datos</a></li>
-                        <li><a class="nav-link" href="{{ route('incriptions.create') }}">Inscribir</a></li> 
 
                             <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -64,6 +57,21 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
                                                         document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
+                                        <a class="dropdown-item" href="{{ route('users.index') }}">Gestión de Usuarios</a>
+                                        <a class="dropdown-item" href="{{ route('roles.index') }}">Gestión de Roles</a>
+                                        <a class="dropdown-item" href="{{ route('people.index') }}">Gestión de Personas</a>
+                                        <a class="dropdown-item" href="{{ route('coordinators.index') }}">Gestión de Coordinadores</a>
+                                        <a class="dropdown-item" href="{{ route('professors.index') }}">Gestión de Profesores</a>
+                                        <a class="dropdown-item" href="{{ route('students.index') }}">Gestión de Estudiantes</a> 
+                                        <a class="dropdown-item" href="{{ route('semesters.index') }}">Gestión de Semestres</a> 
+                                        <a class="dropdown-item" href="{{ route('schedules.index') }}">Gestión de Horarios</a> 
+                                        <a class="dropdown-item" href="{{ route('careers.index') }}">Gestión de Carreras</a>
+                                        <a class="dropdown-item" href="{{ route('sections.index') }}">Gestión de Secciones</a> 
+                                        <a class="dropdown-item" href="{{ route('courses.index') }}">Gestión de Cursos</a> 
+                                        <a class="dropdown-item" href="{{ route('scores.index') }}">Gestión de Notas</a>
+
+                                        <a class="dropdown-item" href="{{ route('incriptions.index') }}">Ver datos</a>
+                                        <a class="dropdown-item" href="{{ route('incriptions.create') }}">Inscribir</a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf

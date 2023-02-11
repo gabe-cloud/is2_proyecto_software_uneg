@@ -1,7 +1,7 @@
 @extends('layouts.app') <!-- Se exporta la vista layouts-->
 
 <!-- Esta carpeta people solo es creada de guia a la hora de realizar vistas de CRUD para que observen como esta estructurada 
-y como se llamadan los valores y rutas, no tiene relacion con el proyecto-->
+y como se llamadan los valores y rutas-->
 
 
 @section('content')

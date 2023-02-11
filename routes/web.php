@@ -9,8 +9,13 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\CoordinatorController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ScoreController;
+use App\Http\Controllers\SectionController;
+use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\IncriptionsController;
   
 /*
@@ -40,8 +45,13 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('people', PersonController::class);
     Route::resource('professors', ProfessorController::class);
     Route::resource('coordinators', CoordinatorController::class);
+    Route::resource('students', StudentController::class);
     Route::resource('careers', CareerController::class);
     Route::resource('schedules', ScheduleController::class);
+    Route::resource('courses', CourseController::class);
+    Route::resource('scores', ScoreController::class);
+    Route::resource('sections', SectionController::class);
+    Route::resource('semesters', SemesterController::class);
     //Rutas del controlador de inscripciones
     Route::resource('incriptions', IncriptionsController::class);
     Route::get('inscripciones/delete/{id_control}/{id_ins}', [IncriptionsController::class,'delete'])->name('inscripciones.delete');

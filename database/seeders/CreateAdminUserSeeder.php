@@ -11,7 +11,7 @@ use Spatie\Permission\Models\Permission;
 class CreateAdminUserSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeds with the command: php artisan db:seed --class=CreateAdminUserSeeder
      *
      * @return void
      */
