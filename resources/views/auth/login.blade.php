@@ -1,11 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+<div style="background-image: url('imgs/FONDOUNEG.jpg'); height: calc(100vh -  55.05px); background-position: center;
+            background-size: 100% 100%;">
+    <div class="row justify-content-center w-100 h-100" >
+        <div class="col-md-8 m-auto">
+            <div class="card bg-black text-white w-50 m-auto" >
                 <div class="card-header">{{ __('Login') }}</div>
+
+                <img src="imgs/LOGOUNEG.jpg" width="150" class="m-auto" style="border-radius: 25px;">
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -45,7 +48,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Recordar') }}
+                                        {{ __('Remember me') }}
                                     </label>
                                 </div>
                             </div>
@@ -59,7 +62,7 @@
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('¿Olvido su contraseña?') }}
+                                        {{ __('¿Forgot your password?') }}
                                     </a>
                                 @endif
                             </div>
