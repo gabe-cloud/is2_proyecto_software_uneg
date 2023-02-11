@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="" style="background-image: url('imgs/FONDOUNEG.jpg'); height: calc(100vh -  55.05px); background-position: center;
+<div style="background-image: url('imgs/FONDOUNEG.jpg'); height: calc(100vh -  55.05px); background-position: center;
             background-size: 100% 100%;">
     <div class="row justify-content-center w-100 h-100" >
         <div class="col-md-8 m-auto">
