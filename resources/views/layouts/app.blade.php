@@ -19,7 +19,7 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
 
     
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
     <div id="app">
@@ -77,8 +77,33 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
         </nav>
 
         <main class="py-4">
-            @yield('content')
-        </main>
+            @guest
+            @if (Route::has('login'))
+            <section id="inicio" class="inicio">
+                <div class="contenido-banner">
+                    <div class="contenedor-img">
+                        <img src="../../../imgs/LOGOUNEG.jpg" alt="">
+                    </div>
+                    <h1>UNEG</h1>
+                    <button class="btn-acceso">
+                        Acceder<i class=""></i>
+                        <span class="overlay"></span>
+                    </button>
+                    <div class="redes"><!--acceso a redes, los logos son de fontawsome-->
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>   
+                    </div>
+                </div>
+            </section>
+            @endif
+            @else
+            
+        @endguest
+        @yield('content')
+    </main>
     </div>
+
 </body>
 </html>
