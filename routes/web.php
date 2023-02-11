@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\CoordinatorController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\IncriptionsController;
   
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,14 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('coordinators', CoordinatorController::class);
     Route::resource('careers', CareerController::class);
     Route::resource('schedules', ScheduleController::class);
+    //Rutas del controlador de inscripciones
+    Route::resource('incriptions', IncriptionsController::class);
+    Route::get('inscripciones/delete/{id_control}/{id_ins}', [IncriptionsController::class,'delete'])->name('inscripciones.delete');
+    Route::get('inscripciones/cambio/{id_control}/{nombre_asig}/{carrera}', [IncriptionsController::class,'cambio'])->name('inscripciones.cambio');
+    Route::get('inscripciones/adicionar', [IncriptionsController::class,'adicionar'])->name('inscripciones.adicion');
+    Route::post('inscripciones/update-seccion', [IncriptionsController::class,'seccion_ca'])->name('inscripciones.update_seccion');
+    Route::post('inscripciones/save_adicion', [IncriptionsController::class,'save_adicion'])->name('inscripciones.save_adicion');
+
 });
 Auth::routes();
 
