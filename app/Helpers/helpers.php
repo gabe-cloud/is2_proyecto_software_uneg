@@ -76,3 +76,13 @@ function save_control_inscripcion($estudiante, $nombres, $seccion, $id_inscripci
     }
     return $cont;
 }
+
+function asignaturas_inscritas(){
+    
+    $user = \Auth::user();
+    $id_user = $user->id;
+    $estudiante = Student::find($id_user);
+    $inscripcion = Incription::where('student_id', $estudiante->id)->first();
+    $asignaturas = $inscripcion->control_inscripcion_ins;
+        
+}
