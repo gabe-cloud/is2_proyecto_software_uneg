@@ -49,6 +49,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('inscripciones/adicionar', [IncriptionsController::class,'adicionar'])->name('inscripciones.adicion');
     Route::post('inscripciones/update-seccion', [IncriptionsController::class,'seccion_ca'])->name('inscripciones.update_seccion');
     Route::post('inscripciones/save_adicion', [IncriptionsController::class,'save_adicion'])->name('inscripciones.save_adicion');
+    Route::get('inscripciones/constancia', [IncriptionsController::class,'constancia_ins'])->name('inscripciones.constancia');
+    Route::get('inscripciones/verconstancia', [IncriptionsController::class,'ver_constancia'])->name('inscripciones.ver_constancia');
+    
     //Rutas de horarios
     Route::get('horarios/mi_horario', [ScheduleController::class,'horario_ins'])->name('horario.mi_horario');
     //Rutas notas

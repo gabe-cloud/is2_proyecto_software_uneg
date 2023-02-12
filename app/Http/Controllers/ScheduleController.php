@@ -64,11 +64,7 @@ class ScheduleController extends Controller
     
     public function horario_ins(){
         
-        $user = \Auth::user();
-        $id_user = $user->id;
-        $estudiante = Student::find($id_user);
-        $inscripcion = Incription::where('student_id', $estudiante->id)->first();
-        $datos = $inscripcion->control_inscripcion_ins;
+        $datos = mostrar_datos();
             
         return view('schedules.horario_ins', [
             'schedules' => $datos

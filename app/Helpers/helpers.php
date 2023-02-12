@@ -10,22 +10,15 @@ use App\Models\User;
 use App\Models\Section;
 
 
-function mostrar_datos($id){
+function mostrar_datos(){
 
-    //Busco el id de la inscripcion
-    $inscripcion = Incription::where('student_id', $id)->first();
-    //Busco todos los registros que coincidan con el id de la inscripcion
-    $control_ins = Controls_incription::where('incription_id', $inscripcion->id)->get();
-    $materias_ins= array();
-    $cont=0;
-    foreach($control_ins as $control){
-        //Añado las asignaturas inscritas al array
-        $asignatura = Course::find($control->course_id);
-        $materias_ins[$cont]['asignatura'] = $asignatura;
-        $materias_ins[$cont]['control_ins'] = $control;
-        $cont++;
-    }
-    return $materias_ins;
+    $user = \Auth::user();
+    $id_user = $user->id;
+    $estudiante = Student::find($id_user);
+    $inscripcion = Incription::where('student_id', $estudiante->id)->first();
+    $asignaturas = $inscripcion->control_inscripcion_ins;
+   
+    return $asignaturas;
 }
 
 function asignaturas_carreras($id){
@@ -75,14 +68,4 @@ function save_control_inscripcion($estudiante, $nombres, $seccion, $id_inscripci
         }
     }
     return $cont;
-}
-
-function asignaturas_inscritas(){
-    
-    $user = \Auth::user();
-    $id_user = $user->id;
-    $estudiante = Student::find($id_user);
-    $inscripcion = Incription::where('student_id', $estudiante->id)->first();
-    $asignaturas = $inscripcion->control_inscripcion_ins;
-        
 }
