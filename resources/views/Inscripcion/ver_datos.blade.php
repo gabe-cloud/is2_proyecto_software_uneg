@@ -24,7 +24,7 @@
         </div>
         <div class="row">
             <div class="col-xl-12 text-right">
-                <a href="{{ route('inscripciones.constancia') }}" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm">Crear constancia de inscripcion</a>
+                <a href="{{ route('inscripciones.constancia') }}" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm">Descargar constancia de inscripcion</a>
                 <a href="{{ route('inscripciones.ver_constancia') }}" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm">ver constancia de inscripcion</a>
             </div>
         </div>

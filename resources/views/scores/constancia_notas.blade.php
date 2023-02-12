@@ -16,32 +16,23 @@
 <body>
     <div class="container py-5">
         <p class="text-center"><img src="{{asset('img/LOGO_UNEG.jpg')}}" alt="logo uneg" width="150px" height="150px"></p>
-        <h5 class=" font-weight-bold text-center">Constancia de inscripcion</h5>
+        <h5 class=" font-weight-bold text-center">Constancia de Notas</h5>
         <h6>Nombre: {{$mis_datos->name}} </h6>    
         <h6>Apellido:  {{$mis_datos->last_name}} </h6>
         <h6>C.I: {{$mis_datos->ci}} </h6>
         <table class="table table-bordered mt-5">
             <thead>
                 <tr>
-                    <th>ID inscripcion</th>
                     <th>Asignatura</th>
-                    <th>Seccion</th>
-                    <th>U.C</th>
-                    <th>Profesor</th>
-                    <th>Horario</th>
+                    <th>Nota final</th>
                     
                 </tr>
             </thead>
             <tbody>
-                @forelse ($asignaturas as $asig)
+                @forelse ($notas as $nota)
                 <tr>
-                    <td>{{$asig->id}}</td>
-                    <td>{{$asig->asignaturas_control_ins->course_type}}</td>
-                    <td>{{$asig->asignaturas_control_ins->seccion->section_number}}</td>
-                    <td>{{$asig->asignaturas_control_ins->credit_units}}</td>
-                    <td>{{$asig->asignaturas_control_ins->profesor->datos->name}} {{$asig->asignaturas_control_ins->profesor->datos->last_name}}</td>
-                    <td>{{$asig->asignaturas_control_ins->horario->day}} - {{$asig->asignaturas_control_ins->horario->entry_time}} - {{$asig->asignaturas_control_ins->horario->departure_time}} </td>
-                    
+                    <td>{{$nombre_asig[$i++]}}</td>
+                    <td>{{$nota->nota_final}} </td>
                 </tr>
                 @empty
 

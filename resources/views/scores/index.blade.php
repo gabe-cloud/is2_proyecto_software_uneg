@@ -19,6 +19,12 @@
             @endforeach 
         
         </div>
+        <div class="row">
+            <div class="col-xl-12 text-right">
+                <a href="{{ route('notas.constancia') }}" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm">Descargar constancia de notas</a>
+                <a href="{{ route('notas.ver_constancia') }}" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm">ver constancia de notas</a>
+            </div>
+        </div>
     @else
         <h1>No tienes materias inscritas</h1>
     @endif

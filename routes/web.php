@@ -57,6 +57,8 @@ Route::group(['middleware' => ['auth']], function() {
     //Rutas notas
     Route::get('notas', [ScoreController::class,'index'])->name('notas.index');
     Route::get('notas/descripcion/{id}', [ScoreController::class,'ver_notas'])->name('notas.ver');
+    Route::get('notas/constancia', [ScoreController::class,'constancia_notas'])->name('notas.constancia');
+    Route::get('notas/ver_constancia', [ScoreController::class,'ver_constancia_notas'])->name('notas.ver_constancia');
     
 });
 Auth::routes();

@@ -19,28 +19,31 @@ como prefieran.-->
     </div>
 @endif
 
-
-<table class="table table-bordered">
-    <tr>
-        <th>No</th>
-        <th>Descripcion</th>
-        <th>Ponderacion 20%</th>
-        <th>Fecha</th>
-    </tr>
-    
-    @foreach ($notas as $key => $nota)
-    <tr>
-        <td>{{ ++$i }}</td>
-        <td>{{ $nota->description }}</td>
-        <td>{{ $nota->score }}</td>
-        <td>{{ $nota->score_date }}</td>
-    </tr>
-    @endforeach
-    <tr>
-        <td>total</td>
-        <td>{{$total}}</td>
-    </tr>
-</table>
-
-
+<div class="row">
+    @if(isset($notas))
+        <table class="table table-bordered">
+            <tr>
+                <th>No</th>
+                <th>Descripcion</th>
+                <th>Ponderacion 20%</th>
+                <th>Fecha</th>
+            </tr>
+            
+            @foreach ($notas as $key => $nota)
+            <tr>
+                <td>{{ ++$i }}</td>
+                <td>{{ $nota->description }}</td>
+                <td>{{ $nota->score }}</td>
+                <td>{{ $nota->score_date }}</td>
+            </tr>
+            @endforeach
+            <tr>
+                <td>total</td>
+                <td>{{$total}}</td>
+            </tr>
+        </table>
+    @else
+        <h1>No hay notas registradas en esta asignatura</h1>
+    @endif
+</div>
 @endsection
