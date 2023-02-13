@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Career extends Model
+class Schedule extends Model
 {
     use HasFactory;
 
@@ -15,5 +15,11 @@ class Career extends Model
         'entry_time',
         'departure_time'
     ];
+
+    protected $table = 'schedules';
+
+    public function asignaturas(){
+        return $this->hasMany('App\Models\Course', 'schedules_id');
+    }
 
 }
