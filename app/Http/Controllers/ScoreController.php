@@ -18,11 +18,11 @@ use PDF;
 
 class ScoreController extends Controller
 {
-    public function index(){
+    public function notas_estudiantes(){
         
         $datos = mostrar_datos();
             
-        return view('scores.index', [
+        return view('scores.ver_nota_estudiante', [
             'asignaturas' => $datos
         ]);
     }
@@ -140,18 +140,18 @@ class ScoreController extends Controller
 
     function __construct()
     {
-         $this->middleware('permission:score-list|score-create|score-edit|score-delete', ['only' => ['index','show']]);
+         $this->middleware('permission:score-list|score-create|score-edit|score-delete', ['only' => ['index','show', 'notas_estudiantes']]);
          $this->middleware('permission:score-create', ['only' => ['create','store']]);
          $this->middleware('permission:score-edit', ['only' => ['edit','update']]);
          $this->middleware('permission:score-delete', ['only' => ['destroy']]);
     }
  
-  /*  public function index()
+    public function index()
     {
         $scores = Score::latest()->paginate(5);
         return view('scores.index',compact('scores'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
-    }*/
+    }
     
     public function create()
     {
@@ -163,6 +163,7 @@ class ScoreController extends Controller
         request()->validate([
             'id' => 'required',
             'course_id' => 'required',
+            'description' => 'required',
             'student_id' => 'required',
             'score' => 'required',
             'score_date' => 'required',
@@ -191,6 +192,7 @@ class ScoreController extends Controller
         request()->validate([
             'id' => 'required',
             'course_id' => 'required',
+            'description' => 'required',
             'student_id' => 'required',
             'score' => 'required',
             'score_date' => 'required',

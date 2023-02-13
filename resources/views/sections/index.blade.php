@@ -34,7 +34,7 @@
         <tr>
             <td>{{ $section->id }}</td>
             <td>{{ $section->career_id }}</td>
-            <td>{{ $section->semester_id }}</td>
+            <td>{{ $section->semesters_id }}</td>
             <td>{{ $section->section_number }}</td>
 
             <td>

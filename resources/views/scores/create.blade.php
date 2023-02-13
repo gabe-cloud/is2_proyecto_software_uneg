@@ -36,6 +36,12 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
+                            <strong>Descripcion:</strong>
+                            <input type="text" name="description" class="form-control" placeholder="Descriptcion">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
                             <strong>Estudiante ID:</strong>
                             <input type="text" name="student_id" class="form-control" placeholder="Estudiante ID">
                         </div>

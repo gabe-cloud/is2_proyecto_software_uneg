@@ -26,6 +26,7 @@
         <tr>
             <th>ID</th>
             <th>Curso ID</th>
+            <th>Descripcion</th>
             <th>Estudiante ID</th>
             <th>Nota</th>
             <th>Fecha de nota</th>
@@ -35,6 +36,7 @@
         <tr>
             <td>{{ $score->id }}</td>
             <td>{{ $score->course_id }}</td>
+            <td>{{ $score->description }}</td>
             <td>{{ $score->student_id }}</td>
             <td>{{ $score->score }}</td>
             <td>{{ $score->score_date }}</td>

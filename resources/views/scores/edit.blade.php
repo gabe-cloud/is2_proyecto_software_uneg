@@ -45,6 +45,12 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+                    <strong>Descripcion:</strong>
+                    <input type="text" name="descripction" value="{{ $score->description }}" class="form-control" placeholder="Descripcion">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
                     <strong>Estudiante ID:</strong>
                     <input type="text" name="student_id" value="{{ $score->student_id }}" class="form-control" placeholder="Estudiante ID">
                 </div>

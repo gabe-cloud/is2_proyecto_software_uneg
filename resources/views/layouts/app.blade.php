@@ -74,10 +74,9 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
 
                                         <a class="dropdown-item" href="{{ route('incriptions.index') }}">Ver datos</a>
                                         <a class="dropdown-item" href="{{ route('incriptions.create') }}">Inscribir</a>
-                                        <a class="nav-link" href="{{ route('schedules.index') }}">Ver horario</a>
                                         <a class="nav-link" href="{{ route('horario.mi_horario') }}">Horario clases</a>
                         
-                                        <a class="nav-link" href="{{ route('notas.index') }}">Notas</a>
+                                        <a class="nav-link" href="{{ route('notas.notas_estudiantes') }}">Notas</a>
 
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

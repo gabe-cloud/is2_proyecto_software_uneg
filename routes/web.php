@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\CoordinatorController;
@@ -17,7 +16,6 @@ use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\IncriptionsController;
-use App\Http\Controllers\ScoreController;
   
 /*
 |--------------------------------------------------------------------------
@@ -65,7 +63,7 @@ Route::group(['middleware' => ['auth']], function() {
     //Rutas de horarios
     Route::get('horarios/mi_horario', [ScheduleController::class,'horario_ins'])->name('horario.mi_horario');
     //Rutas notas
-    Route::get('notas', [ScoreController::class,'index'])->name('notas.index');
+    Route::get('notas/estudiantes', [ScoreController::class,'notas_estudiantes'])->name('notas.notas_estudiantes');
     Route::get('notas/descripcion/{id}', [ScoreController::class,'ver_notas'])->name('notas.ver');
     Route::get('notas/constancia', [ScoreController::class,'constancia_notas'])->name('notas.constancia');
     Route::get('notas/ver_constancia', [ScoreController::class,'ver_constancia_notas'])->name('notas.ver_constancia');

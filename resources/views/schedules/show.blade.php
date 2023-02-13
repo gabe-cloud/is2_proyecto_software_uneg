@@ -22,19 +22,19 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>CI:</strong>
+                <strong>Dia:</strong>
                 {{ $schedule->day }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Nombre:</strong>
+                <strong>Hora entrada:</strong>
                 {{ $schedule->entry_time }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Apellido:</strong>
+                <strong>Hora Salida:</strong>
                 {{ $schedule->departure_time }}
             </div>
         </div>

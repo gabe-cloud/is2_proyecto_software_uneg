@@ -28,6 +28,12 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>Descripcion:</strong>
+                {{ $score->description }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>Estudiante ID:</strong>
                 {{ $score->student_id }}
             </div>
