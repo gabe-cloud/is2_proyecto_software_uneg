@@ -19,9 +19,10 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
 
     
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+     @vite(['resources/sass/app.scss', 'resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
+<body class="bg-dark"> <!--no se si esta sea la solucion mas elegante
+                        hace que el scroll actue raro pero al menos tiene todo el fondo negro-->
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-black shadow-sm ">
             <div class="container">
@@ -89,7 +90,33 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
                 </div>
             </div>
         </nav>
-        <main >
+
+        @guest
+            @if (Route::has('login'))
+            <section id="inicio" class="inicio">
+                <div class="contenido-banner">
+                    <div class="contenedor-img">
+                        <img src="../../../imgs/LOGOUNEG.jpg" alt="">
+                    </div>
+                    <h1>UNEG</h1>
+                    <button class="btn-acceso">
+                        Acceder<i class=""></i><!--esto deberia tambien llevar al login-->
+                        <span class="overlay"></span>
+                    </button>
+                    <div class="redes"><!--acceso a redes, los logos son de fontawsome-->
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>   
+                    </div>
+                </div>
+            </section>
+            @endif
+            @else
+            
+        @endguest
+
+        <main>
         <div class="p-3 mb-2 bg-dark text-white">
             @yield('content')
 
