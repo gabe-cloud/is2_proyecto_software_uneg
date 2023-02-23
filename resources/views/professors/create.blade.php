@@ -43,7 +43,14 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <strong>Tipo de profesor:</strong>
-                            <input type="text" name="professor_type" class="form-control" placeholder="Tipo de profesor">
+                            <select name="professor_type" class="form-control">
+                                    <option value="Pregrado">
+                                        Preprado
+                                    </option>
+                                    <option value="Postgrado">
+                                        Postgrado
+                                    </option>
+                            </select>
                         </div>
                     </div>
                     <div class="text-center">
