@@ -1,15 +1,11 @@
 @extends('layouts.app') <!-- Se exporta la vista layouts-->
 
 @section('content')
+<div class="container">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Gestión de profesores</h2>
-            </div>
-            <div class="pull-right">
-                @can('professor-create')
-                <a class="btn btn-success" href="{{ route('professors.create') }}"> Agregar profesor</a>
-                @endcan
             </div>
         </div>
     </div>
@@ -22,13 +18,13 @@
     @endif
 
 
-    <table class="table table-bordered">
+    <table class="table table-bordered text-white bg-secondary p-2">
         <tr>
             <th>ID</th>
             <th>Profeseción</th>
             <th>Fecha de ingreso</th>
             <th>Tipo de profesor</th>
-            <th width="280px">Acciones</th>
+            <th width="235px">Acciones</th>
         </tr>
         @foreach ($professors as $professor)
         <tr>
@@ -39,7 +35,7 @@
 
             <td>
                 <form action="{{ route('professors.destroy',$professor->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('professors.show',$professor->id) }}">Mostrar</a>
+                    <a class="btn btn-success" href="{{ route('professors.show',$professor->id) }}">Mostrar</a>
                     @can('professor-edit')
                     <a class="btn btn-primary" href="{{ route('professors.edit',$professor->id) }}">Editar</a>
                     @endcan
@@ -56,6 +52,13 @@
         @endforeach
     </table>
 
+    <div class="pull-right">
+            @can('professor-create')
+                <a class="btn btn-success" href="{{ route('professors.create') }}"> Agregar profesor</a>
+            @endcan
+    </div>
+
+</div>
 
     {!! $professors->links() !!}
 

@@ -2,15 +2,11 @@
 
 
 @section('content')
+<div class="container">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Gestión de horarios</h2>
-            </div>
-            <div class="pull-right">
-                @can('schedule-create')
-                <a class="btn btn-success" href="{{ route('schedules.create') }}"> Crear nuevo Horario</a>
-                @endcan
             </div>
         </div>
     </div>
@@ -23,13 +19,13 @@
     @endif
 
 
-    <table class="table table-bordered">
+    <table class="table table-bordered text-white bg-secondary p-2">
         <tr>
             <th>Horario ID</th>
             <th>Día</th>
             <th>Hora de entrada</th>
             <th>Hora de salida</th>
-            <th width="280px">Acciones</th>
+            <th width="235px">Acciones</th>
         </tr>
         @foreach ($schedules as $schedule)
         <tr>
@@ -40,7 +36,7 @@
           
             <td>
                 <form action="{{ route('schedules.destroy',$schedule->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('schedules.show',$schedule->id) }}">Mostrar</a>
+                    <a class="btn btn-success" href="{{ route('schedules.show',$schedule->id) }}">Mostrar</a>
                     @can('schedule-edit')
                     <a class="btn btn-primary" href="{{ route('schedules.edit',$schedule->id) }}">Editar</a>
                     @endcan
@@ -57,6 +53,13 @@
         @endforeach
     </table>
 
+    <div class="pull-right">
+            @can('schedule-create')
+                <a class="btn btn-success" href="{{ route('schedules.create') }}"> Crear nuevo Horario</a>
+            @endcan
+    </div>
+
+</div>
 
     {!! $schedules->links() !!}
 

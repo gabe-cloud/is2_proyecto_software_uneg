@@ -1,15 +1,11 @@
 @extends('layouts.app') <!-- Se exporta la vista layouts-->
 
 @section('content')
+<div class="container">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Gestión de estudiantes</h2>
-            </div>
-            <div class="pull-right">
-                @can('student-create') <!-- La condicion can da acceso al cotroller de rol-->
-                <a class="btn btn-success" href="{{ route('students.create') }}"> Agregar studiante</a>
-                @endcan
             </div>
         </div>
     </div>
@@ -22,14 +18,14 @@
     @endif
 
 
-    <table class="table table-bordered">
+    <table class="table table-bordered text-white bg-secondary p-2">
         <tr>
             <th>ID</th>
             <th>ID semestre</th>
             <th>ID carrera</th>
             <th>Fecha de ingreso</th>
             <th>Estado</th>
-            <th width="280px">Acciones</th>
+            <th width="235px">Acciones</th>
         </tr>
         @foreach ($students as $student)
         <tr>
@@ -41,7 +37,7 @@
 
             <td>
                 <form action="{{ route('students.destroy',$student->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('students.show',$student->id) }}">Mostrar</a>
+                    <a class="btn btn-success" href="{{ route('students.show',$student->id) }}">Mostrar</a>
                     @can('student-edit')
                     <a class="btn btn-primary" href="{{ route('students.edit',$student->id) }}">Editar</a>
                     @endcan
@@ -58,6 +54,13 @@
         @endforeach
     </table>
 
+    <div class="pull-right">
+            @can('student-create') <!-- La condicion can da acceso al cotroller de rol-->
+                <a class="btn btn-success" href="{{ route('students.create') }}"> Agregar estudiante</a>
+            @endcan
+    </div>
+
+</div>
 
     {!! $students->links() !!}
 

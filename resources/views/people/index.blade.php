@@ -5,15 +5,11 @@ y como se llamadan los valores y rutas-->
 
 
 @section('content')
+<div class="container">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Gestión de personas</h2>
-            </div>
-            <div class="pull-right">
-                @can('person-create')
-                <a class="btn btn-success" href="{{ route('people.create') }}"> Agregar datos de a una cuenta</a>
-                @endcan
             </div>
         </div>
     </div>
@@ -26,7 +22,7 @@ y como se llamadan los valores y rutas-->
     @endif
 
 
-    <table class="table table-bordered">
+    <table class="table table-bordered text-white bg-secondary p-2">
         <tr>
             <th>ID</th>
             <th>CI</th>
@@ -35,7 +31,7 @@ y como se llamadan los valores y rutas-->
             <th>Número de telefono</th>
             <th>Dirección</th>
             <th>Personal email</th>
-            <th width="280px">Acciones</th>
+            <th width="235px">Acciones</th>
         </tr>
         @foreach ($people as $person)
         <tr>
@@ -48,7 +44,7 @@ y como se llamadan los valores y rutas-->
             <td>{{ $person->email }}</td>
             <td>
                 <form action="{{ route('people.destroy',$person->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('people.show',$person->id) }}">Mostrar</a>
+                    <a class="btn btn-success" href="{{ route('people.show',$person->id) }}">Mostrar</a>
                     @can('person-edit')
                     <a class="btn btn-primary" href="{{ route('people.edit',$person->id) }}">Editar</a>
                     @endcan
@@ -65,6 +61,13 @@ y como se llamadan los valores y rutas-->
         @endforeach
     </table>
 
+    <div class="pull-right">
+                @can('person-create')
+                <a class="btn btn-success" href="{{ route('people.create') }}"> Agregar datos de una cuenta</a>
+                @endcan
+    </div>
+
+</div>
 
     {!! $people->links() !!}
 
