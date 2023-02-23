@@ -4,13 +4,20 @@ namespace App\Http\Controllers;
     
 use App\Models\Schedule;
 use Illuminate\Http\Request;
-    
+use Illuminate\Support\Facades\DB;
+use App\Models\Course;
+use App\Models\Incription;
+use App\Models\Student;
+use App\Models\Controls_incription;
+use App\Models\User;
+use App\Models\Section;
+
 class ScheduleController extends Controller
 { 
   
     function __construct()
     {
-         $this->middleware('permission:schedule-list|schedule-create|schedule-edit|schedule-delete', ['only' => ['index','show']]);
+         $this->middleware('permission:schedule-list|schedule-create|schedule-edit|schedule-delete', ['only' => ['index','show', 'horario_ins']]);
          $this->middleware('permission:schedule-create', ['only' => ['create','store']]);
          $this->middleware('permission:schedule-edit', ['only' => ['edit','update']]);
          $this->middleware('permission:schedule-delete', ['only' => ['destroy']]);
@@ -55,6 +62,15 @@ class ScheduleController extends Controller
         return view('schedules.edit',compact('schedule'));
     }
     
+    public function horario_ins(){
+        
+        $datos = mostrar_datos();
+            
+        return view('schedules.horario_ins', [
+            'schedules' => $datos
+        ]);
+    }
+
     public function update(Request $request, Schedule $schedule)
     {
         request()->validate([

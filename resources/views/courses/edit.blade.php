@@ -1,0 +1,85 @@
+@extends('layouts.app') <!-- Se exporta la vista layouts-->
+
+@section('content')
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2>Edición de curso</h2>
+            </div>
+            <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('courses.index') }}"> Regresar</a>
+            </div>
+        </div>
+    </div>
+
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+
+    <form action="{{ route('courses.update',$course->id) }}" method="POST">
+        @csrf
+        @method('PUT')
+
+
+         <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Curso ID:</strong>
+                    <input type="text" name="id" value="{{ $course->id }}" class="form-control" placeholder="ID">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Profesor ID:</strong>
+                    <input type="text" name="professor_id" value="{{ $course->professor_id }}" class="form-control" placeholder="Profesor">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Sección ID:</strong>
+                    <input type="text" name="section_id" value="{{ $course->section_id }}" class="form-control" placeholder="Sección ID">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Carrera ID:</strong>
+                    <input type="text" name="career_id" value="{{ $course->career_id }}" class="form-control" placeholder="Carrera ID">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Horario ID:</strong>
+                    <input type="text" name="schedules_id" value="{{ $course->schedules_id }}" class="form-control" placeholder="Horario ID">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Tipo:</strong>
+                    <input type="text" name="course_type" value="{{ $course->course_type }}" class="form-control" placeholder="Tipo">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Unidades de Credito:</strong>
+                    <input type="text" name="credit_units" value="{{ $course->credit_units }}" class="form-control" placeholder="0">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+              <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+
+
+    </form>
+
+
+@endsection

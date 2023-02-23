@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('student_id');
+            $table->string('description');
             $table->integer('score');
             $table->date('score_date');
             $table->timestamps();

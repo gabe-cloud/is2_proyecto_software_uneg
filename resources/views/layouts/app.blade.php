@@ -23,9 +23,9 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-black shadow-sm ">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">UNEG</a>
+                <a class="navbar-brand text-white" href="{{ url('/home') }}">UNEG</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -41,16 +41,15 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                                <li><a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                                 </li>
                             @endif
                         @else
-                        <li><a class="nav-link" href="{{ route('users.index') }}">Gestión de Usuarios</a></li>
-                        <li><a class="nav-link" href="{{ route('roles.index') }}">Gestión de Roles</a></li>
-                        <li><a class="nav-link" href="{{ route('products.index') }}">Gestión de Productos</a></li>
-                        <li><a class="nav-link" href="{{ route('people.index') }}">Gestión de Personas</a></li>       
+                        
+                        
+                        
                             <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}
                                     </a>
 
@@ -60,6 +59,25 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
                                                         document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
+                                        <a class="dropdown-item" href="{{ route('users.index') }}">Gestión de Usuarios</a>
+                                        <a class="dropdown-item" href="{{ route('roles.index') }}">Gestión de Roles</a>
+                                        <a class="dropdown-item" href="{{ route('people.index') }}">Gestión de Personas</a>
+                                        <a class="dropdown-item" href="{{ route('coordinators.index') }}">Gestión de Coordinadores</a>
+                                        <a class="dropdown-item" href="{{ route('professors.index') }}">Gestión de Profesores</a>
+                                        <a class="dropdown-item" href="{{ route('students.index') }}">Gestión de Estudiantes</a> 
+                                        <a class="dropdown-item" href="{{ route('semesters.index') }}">Gestión de Semestres</a> 
+                                        <a class="dropdown-item" href="{{ route('schedules.index') }}">Gestión de Horarios</a> 
+                                        <a class="dropdown-item" href="{{ route('careers.index') }}">Gestión de Carreras</a>
+                                        <a class="dropdown-item" href="{{ route('sections.index') }}">Gestión de Secciones</a> 
+                                        <a class="dropdown-item" href="{{ route('courses.index') }}">Gestión de Cursos</a> 
+                                        <a class="dropdown-item" href="{{ route('scores.index') }}">Gestión de Notas</a>
+
+                                        <a class="dropdown-item" href="{{ route('incriptions.index') }}">Ver datos</a>
+                                        <a class="dropdown-item" href="{{ route('incriptions.create') }}">Inscribir</a>
+                                        <a class="nav-link" href="{{ route('horario.mi_horario') }}">Horario clases</a>
+                        
+                                        <a class="nav-link" href="{{ route('notas.notas_estudiantes') }}">Notas</a>
+
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf
@@ -71,9 +89,10 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
+        <main >
+        <div class="p-3 mb-2 bg-dark text-white">
             @yield('content')
+
         </main>
     </div>
 </body>

@@ -3,29 +3,37 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Inertia\Inertia;
-use Inertia\Response;
 use Illuminate\Support\Facades\DB;
 use App\Models\Course;
 use App\Models\Incription;
-use App\Models\student;
+use App\Models\Student;
 use App\Models\Controls_incription;
 use App\Models\User;
 use App\Models\Section;
+use App\Models\Person;
+use PDF;
 
 
 class IncriptionsController extends Controller
 {
+
+    function __construct()
+    {
+         $this->middleware('permission:incription-list|incription-create|incription-edit|incription-delete', ['only' => ['index','show']]);
+         $this->middleware('permission:incription-create', ['only' => ['create','store']]);
+         $this->middleware('permission:incription-edit', ['only' => ['adicionar','save_adicion', 'cambio', 'seccion_ca']]);
+         $this->middleware('permission:incription-delete', ['only' => ['delete']]);
+    }
    //Metodo que me muestra las asignaturas que tengo inscritas
     public function index()
     {
         $user = \Auth::user();
         $id_user = $user->id;
-        $estudiante = student::find($id_user);
+        $estudiante = Student::find($id_user);
 
         if($estudiante->status == 'Inscrito'){
             
-            $materias_ins = mostrar_datos($id_user);
+            $materias_ins = mostrar_datos();
             
             return view('Inscripcion.ver_datos', [
                 'asignaturas' => $materias_ins
@@ -43,7 +51,7 @@ class IncriptionsController extends Controller
     {
         $user = \Auth::user();
         $id_user = $user->id;
-        $estudiante = student::find($id_user);
+        $estudiante = Student::find($id_user);
 
         if($estudiante->status != 'Inscrito'){
 
@@ -56,7 +64,7 @@ class IncriptionsController extends Controller
             ]);
         }else{
             
-            $materias_ins = mostrar_datos($id_user);
+            $materias_ins = mostrar_datos();
             
             return view('Inscripcion.ver_datos', [
                 'asignaturas' => $materias_ins
@@ -80,7 +88,7 @@ class IncriptionsController extends Controller
         $id_user = $user->id;
 
         $fecha = date('Y-m-d');
-        $estudiante = student::find($id_user);
+        $estudiante = Student::find($id_user);
     
         //Comprobando que este estudiante no tiene inscripciones
         $estudiante_inscrito = Incription::where('student_id', $id_user)->first();
@@ -109,7 +117,7 @@ class IncriptionsController extends Controller
             $estudiante->status = 'Inscrito';
             $estudiante->update();
     
-            $materias_ins = mostrar_datos($id_user);
+            $materias_ins = mostrar_datos();
             
             return view('Inscripcion.ver_datos', [
                 'asignaturas' => $materias_ins
@@ -126,13 +134,17 @@ class IncriptionsController extends Controller
     
     }
 
+    public function show(){
+
+    }
+
    
     public function adicionar()
     {
     
         $user = \Auth::user();
         $id_user = $user->id;
-        $estudiante = student::find($id_user);
+        $estudiante = Student::find($id_user);
         $carrera_estudiante = $estudiante->career_id;
         $nombre_asignaturas = asignaturas_carreras($carrera_estudiante);
         $inscripcion = Incription::where('student_id', $estudiante->id)->first();
@@ -166,7 +178,7 @@ class IncriptionsController extends Controller
             ]);
         }else{
             
-            $materias_ins = mostrar_datos($id_user);
+            $materias_ins = mostrar_datos();
             
             return view('Inscripcion.ver_datos', [
                 'asignaturas' => $materias_ins
@@ -189,7 +201,7 @@ class IncriptionsController extends Controller
         $user = \Auth::user();
         $id_user = $user->id;
 
-        $estudiante = student::find($id_user);
+        $estudiante = Student::find($id_user);
         
         //Se obtiene los datos de las materias y secciones
         $nombres = $request->input('nombres');
@@ -198,7 +210,7 @@ class IncriptionsController extends Controller
         $cont = save_control_inscripcion($estudiante, $nombres, $seccion, $id_inscripcion);
         if($cont >=1){
 
-            $materias_ins = mostrar_datos($id_user);
+            $materias_ins = mostrar_datos();
             
             return view('Inscripcion.ver_datos', [
                 'asignaturas' => $materias_ins
@@ -219,9 +231,7 @@ class IncriptionsController extends Controller
     //Metodo que me dice si existe mas de una seccion
     public function cambio($id_control, $nombre_asig, $carrera)
     {
-        $user = \Auth::user();
-        $id_user = $user->id;
-
+        
         $cambio = Course::where('course_type', $nombre_asig)->where('career_id', $carrera)->get();
         //Comprobar que existe mas de una seccion
         if(count($cambio)>1){
@@ -231,7 +241,7 @@ class IncriptionsController extends Controller
                 'control_id' => $id_control
             ]);
         }else{
-            $materias_ins = mostrar_datos($id_user);
+            $materias_ins = mostrar_datos();
             
             return view('Inscripcion.ver_datos', [
                 'asignaturas' => $materias_ins
@@ -258,7 +268,7 @@ class IncriptionsController extends Controller
         $control->course_id = $id_course;
         $control->update();
 
-        $materias_ins = mostrar_datos($id_user);
+        $materias_ins = mostrar_datos();
             
         return view('Inscripcion.ver_datos', [
             'asignaturas' => $materias_ins
@@ -279,7 +289,7 @@ class IncriptionsController extends Controller
         $inscrito = Controls_incription::where('incription_id', $id_ins)->get();
         //Se verifica que el estudiante aun tenga materias inscritas
         if(count($inscrito)>=1){
-            $materias_ins = mostrar_datos($id_user);
+            $materias_ins = mostrar_datos();
             
             return view('Inscripcion.ver_datos', [
                 'asignaturas' => $materias_ins
@@ -288,9 +298,7 @@ class IncriptionsController extends Controller
             ]);
         }else{
             //En caso de que ya no tenga materias inscritas hay que eliminar los registros de la BD
-            $user = \Auth::user();
-            $id_user = $user->id;
-            $estudiante = student::find($id_user);
+            $estudiante = Student::find($id_user);
             $inscripcion = Incription::where('student_id', $estudiante->id)->first();
             //Se elimina la inscripcion
             $inscripcion->delete();
@@ -303,4 +311,33 @@ class IncriptionsController extends Controller
             ]);
         }
     }
+
+
+    public function constancia_ins()
+    {
+        $user = \Auth::user();
+        $id_user = $user->id;
+        $mis_datos = Person::find($id_user);
+        $asignaturas = mostrar_datos();
+
+        view()->share('Inscripcion.constancia_ins',[$asignaturas, $mis_datos]);
+
+        $pdf = PDF::loadView('Inscripcion.constancia_ins', ['asignaturas' => $asignaturas, 'mis_datos' => $mis_datos]);
+
+        return $pdf->download('Inscripcion.constancia_ins');
+    }
+
+    public function ver_constancia(){
+        $user = \Auth::user();
+        $id_user = $user->id;
+        $mis_datos = Person::find($id_user);
+        $asignaturas = mostrar_datos();
+        
+        return view('Inscripcion.constancia_ins', [
+            'asignaturas' => $asignaturas,
+            'mis_datos' => $mis_datos
+        ]);
+    }
+
+
 }

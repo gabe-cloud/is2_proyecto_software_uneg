@@ -19,4 +19,7 @@ class Person extends Model
         'email'
     ];
 
+    protected $table = 'people';
+
+    
 }

@@ -29,4 +29,13 @@ class Course extends Model
         return $this->belongsTo('App\Models\Section', 'section_id');
     }
 
+    public function horario(){
+        return $this->belongsTo('App\Models\Schedule', 'schedules_id');
+    }
+
+    public function profesor(){
+        return $this->belongsTo('App\Models\Professor', 'professor_id');
+    
+    }
+
 }

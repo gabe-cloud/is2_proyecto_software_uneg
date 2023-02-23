@@ -16,4 +16,11 @@ class Professor extends Model
         'professor_type'
     ];
 
+
+    protected $table = 'professors';
+
+    public function datos(){
+        return $this->belongsTo('App\Models\Person', 'id');
+    
+    }
 }
