@@ -6,12 +6,7 @@ header para cada vista del programa -->
 
 <section id="opciones" class="opciones">
     <div class="contenido-seccion">
-<<<<<<< HEAD
         <h2>BIENVENIDO</h2>
-=======
-        <h2>BIENVNIDO</h2>
-        
->>>>>>> main
         <p>La <span>Universidad Nacional Experimental de Guayana</span> esta feliz de que formes parte de la poblacion estudiantil, en este sistema encontraras todas las opciones para gestionar tu informació</p>
 
         @if ($message = Session::get('Error'))
