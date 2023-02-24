@@ -31,6 +31,10 @@ class IncriptionsController extends Controller
         $id_user = $user->id;
         $estudiante = Student::find($id_user);
 
+        if(empty($estudiante)){
+            
+            return redirect()->route('home')->with('Error', 'Este usuario no es un estudiante.... Para entrar a la seccion de inscripcion tienes que ser un estudiante');;
+        }
         if($estudiante->status == 'Inscrito'){
             
             $materias_ins = mostrar_datos();
@@ -52,7 +56,10 @@ class IncriptionsController extends Controller
         $user = \Auth::user();
         $id_user = $user->id;
         $estudiante = Student::find($id_user);
-
+        if(empty($estudiante)){
+            
+            return redirect()->route('home')->with('Error', 'Este usuario no es un estudiante.... Para entrar a la seccion de inscripcion tienes que ser un estudiante');;
+        }
         if($estudiante->status != 'Inscrito'){
 
             $carrera_estudiante = $estudiante->career_id;
