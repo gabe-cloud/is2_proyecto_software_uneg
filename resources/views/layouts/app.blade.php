@@ -100,7 +100,7 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
                     </div>
                     <h1>UNEG</h1>
                     <button class="btn-acceso">
-                        Acceder<i class=""></i><!--esto deberia tambien llevar al login-->
+                        <a style="text-decoration: none; color: #fff" href="{{ route('login') }}">Acceder<i class=""></i></a>
                         <span class="overlay"></span>
                     </button>
                     <div class="redes"><!--acceso a redes, los logos son de fontawsome-->
