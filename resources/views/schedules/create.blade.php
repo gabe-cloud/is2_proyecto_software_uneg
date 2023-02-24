@@ -24,12 +24,6 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <strong>Horario ID:</strong>
-                            <input type="text" name="id" class="form-control" placeholder="Horario ID">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
                             <strong>Día:</strong>
                             <input type="text" name="day" class="form-control" placeholder="Día">
                         </div>

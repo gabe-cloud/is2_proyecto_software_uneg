@@ -13,6 +13,9 @@
         </div>
     @endif
 
+@if(count($datos)>=1)
+    
+
     <form action="{{ route('people.store') }}" method="POST">
         @csrf
 
@@ -24,9 +27,15 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <strong>ID de usuario:</strong>
-                            <input type="text" name="id" class="form-control" placeholder="ID">
-                        </div>
+                            <strong>Usuario:</strong>
+                            <select name="id" class="form-control">
+                                @foreach($datos as $dato)
+                                    <option value="{{$dato->id}}"  selected >
+                                        {{$dato->name}}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>    
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
@@ -74,5 +83,8 @@
             </div>
         </div>
     </form>
-
+@else
+<h1>No hay usuarios para asignar a una persona</h1>
+<h2>Por favor cree un nuevo usuario para poder asignarlo a una persona</h2>
+@endif
 @endsection

@@ -23,6 +23,11 @@
             </ul>
         </div>
     @endif
+    @if ($message = Session::get('Error'))
+        <div class="alert alert-danger">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
 
 
     <form action="{{ route('careers.update',$career->id) }}" method="POST">
@@ -31,12 +36,7 @@
 
 
          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Carrera ID:</strong>
-                    <input type="text" name="id" value="{{ $career->id }}" class="form-control" placeholder="ID">
-                </div>
-            </div>
+            <input type="hidden" name="id" value="{{ $career->id }}">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Coordinador ID:</strong>

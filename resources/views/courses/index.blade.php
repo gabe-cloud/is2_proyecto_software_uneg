@@ -20,23 +20,21 @@
 
     <table class="table table-bordered text-white bg-secondary p-2">
         <tr>
-            <th>Curso ID</th>
-            <th>Profesor ID</th>
-            <th>Sección ID</th>
-            <th>Carrera ID</th>
-            <th>Horario ID</th>
-            <th>Tipo</th>
+            <th>Nombre</th>
+            <th>Profesor</th>
+            <th>Sección</th>
+            <th>Carrera</th>
+            <th>Horario</th>
             <th>Unidades de credito</th>
             <th width="235px">Acciones</th>
         </tr>
         @foreach ($courses as $course)
         <tr>
-            <td>{{ $course->id }}</td>
-            <td>{{ $course->professor_id }}</td>
-            <td>{{ $course->section_id }}</td>
-            <td>{{ $course->career_id }}</td>
-            <td>{{ $course->schedules_id }}</td>
             <td>{{ $course->course_type }}</td>
+            <td>{{ $course->profesor->datos->name }} {{ $course->profesor->datos->last_name }}</td>
+            <td>{{ $course->seccion->section_number}}</td>
+            <td>{{ $course->carrera->name }}</td>
+            <td>{{ $course->horario->day}} - {{ $course->horario->entry_time}} - {{ $course->horario->departure_time}}</td>
             <td>{{ $course->credit_units }}</td>
             <td>
                 <form action="{{ route('courses.destroy',$course->id) }}" method="POST">

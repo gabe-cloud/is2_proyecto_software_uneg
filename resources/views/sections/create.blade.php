@@ -12,7 +12,7 @@
             </ul>
         </div>
     @endif
-
+@if(count($carreras) >=1 && count($semestres)>=1)
     <form action="{{ route('sections.store') }}" method="POST">
         @csrf
 
@@ -24,20 +24,26 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <strong>Sección ID:</strong>
-                            <input type="text" name="id" class="form-control" placeholder="ID">
+                            <strong>Carrera:</strong>
+                            <select name="career_id" class="form-control">
+                                @foreach($carreras as $carrera)
+                                    <option value="{{$carrera->id}}"  selected >
+                                        {{$carrera->name}}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <strong>Carrera ID:</strong>
-                            <input type="text" name="career_id" class="form-control" placeholder="Carrera ID">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <strong>Semestre ID:</strong>
-                            <input type="text" name="semester_id" class="form-control" placeholder="Semestre ID">
+                            <strong>Semestre:</strong>
+                            <select name="semesters_id" class="form-control">
+                                @foreach($semestres as $semestre)
+                                    <option value="{{$semestre->id}}"  selected >
+                                        {{$semestre->semester_number}}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -56,5 +62,7 @@
             </div>
         </div>
     </form>
-
+@else
+<h1>No hay secciones o carreras por favor crealas primero</h1>
+@endif
 @endsection

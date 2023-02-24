@@ -13,6 +13,7 @@
         </div>
     @endif
 
+@if(count($profesores)>=1 && count($carreras) >=1 && count($horarios) >=1 && count($secciones) >=1)
     <form action="{{ route('courses.store') }}" method="POST">
         @csrf
 
@@ -24,44 +25,62 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <strong>Curso ID:</strong>
-                            <input type="text" name="id" class="form-control" placeholder="ID">
+                            <strong>Profesor:</strong>
+                            <select name="professor_id" class="form-control">
+                                @foreach($profesores as $profesor)
+                                    <option value="{{$profesor->id}}"  selected >
+                                        {{$profesor->datos->name}} {{$profesor->datos->last_name}}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <strong>Profesor ID:</strong>
-                            <input type="text" name="professor_id" class="form-control" placeholder="Profesor ID">
+                            <strong>Seccion:</strong>
+                            <select name="section_id" class="form-control">
+                                @foreach($secciones as $seccion)
+                                    <option value="{{$seccion->id}}"  selected >
+                                        {{$seccion->section_number}} - {{$seccion->carrera->name}}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <strong>Sección ID:</strong>
-                            <input type="text" name="section_id" class="form-control" placeholder="Sección ID">
+                            <strong>Carrera:</strong>
+                            <select name="career_id" class="form-control">
+                                @foreach($carreras as $carrera)
+                                    <option value="{{$carrera->id}}"  selected >
+                                        {{$carrera->name}}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <strong>Carrera ID:</strong>
-                            <input type="text" name="career_id" class="form-control" placeholder="Carrera ID">
+                            <strong>Horario:</strong>
+                            <select name="schedules_id" class="form-control">
+                                @foreach($horarios as $horario)
+                                    <option value="{{$horario->id}}"  selected >
+                                        {{$horario->day}} - {{$horario->entry_time}} - {{$horario->departure_time}}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <strong>Horario ID:</strong>
-                            <input type="text" name="schedules_id" class="form-control" placeholder="Horario ID">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <strong>Tipo:</strong>
+                            <strong>Nombre:</strong>
                             <input type="text" name="course_type" class="form-control" placeholder="Tipo">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <strong>Número unidades de credito:</strong>
-                            <input type="text" name="credit_units" class="form-control" placeholder="0">
+                            <input type="number" name="credit_units" class="form-control" placeholder="0">
                         </div>
                     </div>
                     <div class="text-center">
@@ -74,5 +93,12 @@
             </div>
         </div>
     </form>
+@else
+    <h1>No es posible crear una Materia ya que hacen falta datos importantes como lo son: </h1>
+    <p>Crear Horarios</p>
+    <p>Crear Secciones</p>
+    <p>Crear Profesores</p>
+    <p>Crear Carreras</p>
+@endif
 
 @endsection

@@ -8,6 +8,9 @@ use App\Models\Student;
 use App\Models\Controls_incription;
 use App\Models\User;
 use App\Models\Section;
+use App\Models\rol;
+use App\Models\Person;
+use App\Models\model_has_rol;
 
 
 function mostrar_datos(){
@@ -68,4 +71,46 @@ function save_control_inscripcion($estudiante, $nombres, $seccion, $id_inscripci
         }
     }
     return $cont;
+}
+
+function Sacar_datos_roles($buscar, $roles){
+    //se busca el id del tipo del rol en la tabla
+    $tipo = rol::where('name', $buscar)->first();
+   /* var_dump($tipo->id);
+    var_dump($buscar);
+    var_dump($tipo);
+    die();*/
+    $rol_id = $tipo->id;
+    //se tienen todas las personas
+    $personas = Person::get();
+    $control_roles = model_has_rol::get();
+    //$cordinadores = Coordinator::get();
+    $total= [];
+    $cont = 0;
+    $ban = false;
+    foreach($personas as $persona){
+        //se recoren los controles de roles para compararlos
+        foreach ($control_roles as $control) {
+            //se compara si el rol es igual al del tipo(corrdinador, estudiante, profesor) y si el modelo_id es igual al id de la persona
+            if($control->role_id == $rol_id && $control->model_id == $persona->id){
+                
+                foreach ($roles as $rol) {
+                    //se verifica que esta persona no tenga ya un cargo asignado
+                    if($rol->id == $persona->id){
+                        $ban = true;
+                    }
+                }
+                if(!$ban){
+                    //se guardan los datos que no tiene un cargo (que no estan asignados)
+                    $total[$cont] = $persona;
+                    $cont++;
+                }
+                $ban = false;
+            }
+        }
+        
+    }
+
+    return $total;
+
 }

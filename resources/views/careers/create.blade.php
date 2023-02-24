@@ -24,14 +24,14 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <strong>Carrera ID:</strong>
-                            <input type="text" name="id" class="form-control" placeholder="ID">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <strong>Coordinador ID:</strong>
-                            <input type="text" name="coordinator_id" class="form-control" placeholder="Coordinador ID">
+                            <strong>Coordinador:</strong>
+                            <select name="coordinator_id" class="form-control">
+                                @foreach($datos as $dato)
+                                    <option value="{{$dato->id}}"  selected >
+                                        {{$dato->datos->name}}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-12">

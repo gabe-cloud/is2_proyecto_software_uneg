@@ -24,12 +24,6 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <strong>Semestre ID:</strong>
-                            <input type="text" name="id" class="form-control" placeholder="ID">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
                             <strong>Número de semestre:</strong>
                             <input type="text" name="semester_number" class="form-control" placeholder="Número de semestre">
                         </div>
