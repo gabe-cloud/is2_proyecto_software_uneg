@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
     
 use App\Models\Course;
 use Illuminate\Http\Request;
+use App\Models\Section;
+use App\Models\Professor;
+use App\Models\Schedule;
+use App\Models\Career;
     
 class CourseController extends Controller
 { 
@@ -25,13 +29,22 @@ class CourseController extends Controller
     
     public function create()
     {
-        return view('courses.create');
+        $carreras = Career::get();
+        $profesores = Professor::get();
+        $horarios = Schedule::get();
+        $secciones = Section::get();
+        return view('courses.create', [
+            'secciones' => $secciones,
+            'carreras' => $carreras,
+            'profesores' => $profesores,
+            'horarios' => $horarios
+        ]);
     }
     
     public function store(Request $request)
     {
         request()->validate([
-            'id' => 'required',
+        
             'professor_id' => 'required',
             'section_id' => 'required',
             'career_id' => 'required',
@@ -70,11 +83,23 @@ class CourseController extends Controller
             'credit_units' => 'required',
 
         ]);
+        
+        $profesor = Professor::find($request->input('professor_id'));
+        $seccion = Section::find($request->input('section_id'));
+        $horario = Schedule::find($request->input('schedules_id'));
+
+        if($profesor && $seccion && $horario){
+            $course->update($request->all());
     
-        $course->update($request->all());
-    
-        return redirect()->route('courses.index')
+            return redirect()->route('courses.index')
                         ->with('success','Courses updated successfully');
+        }else{
+            return redirect()->route('courses.edit', [
+                'course' => $course
+            ])->with('Error','El id de profesor, seccion o del horario no es valido');
+        }
+
+        
     }
     
     public function destroy(Course $course)

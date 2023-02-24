@@ -20,7 +20,7 @@
 
     <table class="table table-bordered text-white bg-secondary p-2">
         <tr>
-            <th>ID</th>
+            <th>Nombre y Apellido</th>
             <th>Profeseción</th>
             <th>Fecha de ingreso</th>
             <th>Tipo de profesor</th>
@@ -28,7 +28,7 @@
         </tr>
         @foreach ($professors as $professor)
         <tr>
-            <td>{{ $professor->id }}</td>
+            <td>{{ $professor->datos->name }} {{ $professor->datos->last_name }}</td>
             <td>{{ $professor->profession }}</td>
             <td>{{ $professor->date_admission }}</td>
             <td>{{ $professor->professor_type }}</td>

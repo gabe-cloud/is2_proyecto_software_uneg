@@ -31,12 +31,7 @@
 
 
          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Horario ID:</strong>
-                    <input type="text" name="id" value="{{ $schedule->id }}" class="form-control" placeholder="Horario ID">
-                </div>
-            </div>
+            <input type="hidden" name="id" value="{{ $schedule->id }}">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Día:</strong>

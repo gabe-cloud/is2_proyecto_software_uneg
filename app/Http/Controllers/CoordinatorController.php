@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
     
 use App\Models\Coordinator;
+use App\Models\rol;
 use Illuminate\Http\Request;
+use App\Models\Person;
+use App\Models\model_has_rol;
     
 class CoordinatorController extends Controller
 { 
@@ -25,7 +28,11 @@ class CoordinatorController extends Controller
     
     public function create()
     {
-        return view('coordinators.create');
+        $cordinadores = Coordinator::get();
+        $datos = Sacar_datos_roles('Coordinador', $cordinadores);
+        return view('coordinators.create',[
+            'datos' => $datos
+        ]);
     }
     
     public function store(Request $request)
@@ -45,7 +52,10 @@ class CoordinatorController extends Controller
 
     public function show(Coordinator $coordinator)
     {
-        return view('coordinators.show',compact('coordinator'));
+       
+        return view('coordinators.show', [
+            'coordinator' => $coordinator
+        ]);
     }
     
     public function edit(Coordinator $coordinator)

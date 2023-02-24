@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
     
 use App\Models\Person;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
     
 class PersonController extends Controller
 { 
@@ -25,7 +26,15 @@ class PersonController extends Controller
     
     public function create()
     {
-        return view('people.create');
+        $datos_usuario =  DB:: table('users')
+        ->select('users.id', 'users.name')
+        ->leftjoin('people', 'users.id', '=', 'people.id')
+        ->whereNull('people.id')
+        ->get();
+        
+        return view('people.create', [
+            'datos' => $datos_usuario
+        ]);
     }
     
     public function store(Request $request)

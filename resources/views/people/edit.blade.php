@@ -31,16 +31,12 @@
 
 
          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>ID de usuario:</strong>
-                    <input type="text" name="id" value="{{ $person->id }}" class="form-control" placeholder="ID">
-                </div>
-            </div>
+            <input type="hidden" name="id" value="{{ $person->id }}">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>CI:</strong>
                     <input type="text" name="ci" value="{{ $person->ci }}" class="form-control" placeholder="CI">
+                    
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

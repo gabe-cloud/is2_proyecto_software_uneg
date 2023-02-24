@@ -20,18 +20,18 @@
 
     <table class="table table-bordered text-white bg-secondary p-2">
         <tr>
-            <th>ID</th>
-            <th>ID semestre</th>
-            <th>ID carrera</th>
+            <th>Nombre y Apellido</th>
+            <th>Semestre</th>
+            <th>Carrera</th>
             <th>Fecha de ingreso</th>
             <th>Estado</th>
             <th width="235px">Acciones</th>
         </tr>
         @foreach ($students as $student)
         <tr>
-            <td>{{ $student->id }}</td>
-            <td>{{ $student->semester_id }}</td>
-            <td>{{ $student->career_id }}</td>
+            <td>{{ $student->datos->name }} {{ $student->datos->last_name }}</td>
+            <td>{{ $student->semestre->semester_number }}</td>
+            <td>{{ $student->carrera->name }}</td>
             <td>{{ $student->date_admission }}</td>
             <td>{{ $student->status }}</td>
 

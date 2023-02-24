@@ -26,4 +26,8 @@ class Section extends Model
         return $this->belongsTo('App\Models\Semester', 'semesters_id');
     }
 
+    public function carrera(){
+        return $this->belongsTo('App\Models\Career', 'career_id');
+    }
+
 }

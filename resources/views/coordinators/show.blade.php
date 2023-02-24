@@ -22,6 +22,18 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>Nombre:</strong>
+                {{ $coordinator->Persona->name }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Apellido:</strong>
+                {{ $coordinator->Persona->last_name }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>Cargo:</strong>
                 {{ $coordinator->appointment }}
             </div>

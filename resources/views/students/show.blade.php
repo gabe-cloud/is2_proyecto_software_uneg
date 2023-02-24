@@ -16,20 +16,20 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Estudiante ID:</strong>
-                {{ $student->id }}
+                <strong>Estudiante:</strong>
+                {{ $student->datos->name }} {{ $student->datos->last_name }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Semestre ID:</strong>
-                {{ $student->semester_id }}
+                <strong>Semestre:</strong>
+                {{ $student->semestre->semester_number }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Carrera ID:</strong>
-                {{ $student->career_id }}
+                <strong>Carrera:</strong>
+                {{ $student->carrera->name }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
