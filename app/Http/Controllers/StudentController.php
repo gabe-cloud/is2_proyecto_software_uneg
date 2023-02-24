@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
     
 use App\Models\Student;
 use Illuminate\Http\Request;
-    
+use App\Models\Career;
+use App\Models\Semester;
+
 class StudentController extends Controller
 { 
   
@@ -25,7 +27,14 @@ class StudentController extends Controller
     
     public function create()
     {
-        return view('students.create');
+        $estudiantes = Student::get();
+        $datos = Sacar_datos_roles('Estudiante', $estudiantes);
+        $carreras = Career::get();
+        
+        return view('students.create',[
+            'carreras' => $carreras,
+            'datos' => $datos
+        ]);
     }
     
     public function store(Request $request)
@@ -66,11 +75,20 @@ class StudentController extends Controller
             'status' => 'required',
 
         ]);
+        $carrera = Career::find($request->input('career_id'));
+        $semestre = Semester::find($request->input('semester_id'));
+
+        if($carrera && $semestre){
+            $student->update($request->all());
     
-        $student->update($request->all());
-    
-        return redirect()->route('students.index')
+            return redirect()->route('students.index')
                         ->with('success','Student updated successfully');
+        }else{
+            return redirect()->route('students.edit', [
+                'student' => $student
+            ])->with('Error','El id de carrera o el id de semestre no existe');
+        }
+        
     }
     
     public function destroy(Student $student)

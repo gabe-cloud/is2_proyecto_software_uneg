@@ -26,7 +26,7 @@
     <table class="table table-bordered">
         <tr>
             <th>ID</th>
-            <th>Coordinador ID</th>
+            <th>Coordinador</th>
             <th>Tipo de carrera</th>
             <th>Nombre de carrera</th>
             <th width="280px">Acciones</th>
@@ -34,7 +34,7 @@
         @foreach ($careers as $career)
         <tr>
             <td>{{ $career->id }}</td>
-            <td>{{ $career->coordinator_id }}</td>
+            <td>{{ $career->coordinador->datos->name }} {{ $career->coordinador->datos->last_name }}</td>
             <td>{{ $career->career_type }}</td>
             <td>{{ $career->name }}</td>
             <td>

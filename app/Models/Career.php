@@ -26,4 +26,8 @@ class Career extends Model
         return $this->hasMany('App\Models\Section', 'career_id');
     }
 
+    public function coordinador(){
+        return $this->belongsTo('App\Models\Coordinator', 'coordinator_id');
+    }
+
 }

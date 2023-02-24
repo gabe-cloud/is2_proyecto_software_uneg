@@ -23,20 +23,20 @@
             </ul>
         </div>
     @endif
-
+    @if ($message = Session::get('Error'))
+        <div class="alert alert-danger">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
 
     <form action="{{ route('courses.update',$course->id) }}" method="POST">
         @csrf
         @method('PUT')
 
-
+        <input type="hidden" name="id" value="{{ $course->id }}">
+        <input type="hidden" name="career_id" value="{{ $course->career_id }}">
+        
          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Curso ID:</strong>
-                    <input type="text" name="id" value="{{ $course->id }}" class="form-control" placeholder="ID">
-                </div>
-            </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Profesor ID:</strong>
@@ -51,19 +51,13 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Carrera ID:</strong>
-                    <input type="text" name="career_id" value="{{ $course->career_id }}" class="form-control" placeholder="Carrera ID">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
                     <strong>Horario ID:</strong>
                     <input type="text" name="schedules_id" value="{{ $course->schedules_id }}" class="form-control" placeholder="Horario ID">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Tipo:</strong>
+                    <strong>Nombre:</strong>
                     <input type="text" name="course_type" value="{{ $course->course_type }}" class="form-control" placeholder="Tipo">
                 </div>
             </div>

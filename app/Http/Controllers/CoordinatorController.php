@@ -28,41 +28,10 @@ class CoordinatorController extends Controller
     
     public function create()
     {
-        //se busca el id del coordinador en la tabal rol
-        $coordinador = rol::where('name', 'Coordinador')->first();
-        $id_coordinador = $coordinador->id;
-        //se tienen todas las personas
-        $personas = Person::get();
-        $control_roles = model_has_rol::get();
         $cordinadores = Coordinator::get();
-        $total_coordiandor = [];
-        $cont = 0;
-        $ban = false;
-        foreach($personas as $persona){
-            //se recoren los controles de roles para compararlos
-            foreach ($control_roles as $control) {
-                //se compara si el rol es igual al del coordinador y si el modelo_id es igual al id de la persona
-                if($control->role_id == $id_coordinador && $control->model_id == $persona->id){
-                    
-                    foreach ($cordinadores as $coor) {
-                        //se verifica que este coordinador no tenga ya un cargo
-                        if($coor->id == $persona->id){
-                            $ban = true;
-                        }
-                    }
-                    if(!$ban){
-                        //se guardan los coordinadores que no tiene un cargo (que no estan asignados)
-                        $total_coordiandor[$cont] = $persona;
-                        $cont++;
-                    }
-                    $ban = false;
-                }
-            }
-            
-        }
-
+        $datos = Sacar_datos_roles('Coordinador', $cordinadores);
         return view('coordinators.create',[
-            'datos' => $total_coordiandor
+            'datos' => $datos
         ]);
     }
     
@@ -83,7 +52,10 @@ class CoordinatorController extends Controller
 
     public function show(Coordinator $coordinator)
     {
-        return view('coordinators.show',compact('coordinator'));
+       
+        return view('coordinators.show', [
+            'coordinator' => $coordinator
+        ]);
     }
     
     public function edit(Coordinator $coordinator)

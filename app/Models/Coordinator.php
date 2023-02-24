@@ -15,4 +15,10 @@ class Coordinator extends Model
         'date_admission'
     ];
 
+    protected $table = 'coordinators';
+
+    public function datos(){
+        return $this->belongsTo('App\Models\Person', 'id');
+    }
+
 }

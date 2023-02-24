@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
     
 use App\Models\Career;
+use App\Models\Coordinator;
 use Illuminate\Http\Request;
     
 class CareerController extends Controller
@@ -25,13 +26,15 @@ class CareerController extends Controller
     
     public function create()
     {
-        return view('careers.create');
+        $datos = Coordinator::get();
+        return view('careers.create', [
+            'datos' => $datos
+        ]);
     }
     
     public function store(Request $request)
     {
         request()->validate([
-            'id' => 'required',
             'coordinator_id' => 'required',
             'career_type' => 'required',
             'name' => 'required',
@@ -64,11 +67,18 @@ class CareerController extends Controller
             'name' => 'required',
 
         ]);
+        $coordinador = Coordinator::find($request->input('coordinator_id'));
+        if($coordinador){
+            $career->update($request->all());
     
-        $career->update($request->all());
-    
-        return redirect()->route('careers.index')
+            return redirect()->route('careers.index')
                         ->with('success','Careers updated successfully');
+        }else{
+            return redirect()->route('careers.edit', [
+                'career' => $career
+            ])->with('Error','El id del coordinador no existe');
+        }
+        
     }
     
     public function destroy(Career $career)

@@ -24,4 +24,15 @@ class Student extends Model
         return $this->hasMany('App\Models\Incription', 'student_id');
     }
 
+    public function datos(){
+        return $this->belongsTo('App\Models\Person', 'id');
+    }
+
+    public function semestre(){
+        return $this->belongsTo('App\Models\Semester', 'semester_id');
+    }
+
+    public function carrera(){
+        return $this->belongsTo('App\Models\Career', 'career_id');
+    }
 }

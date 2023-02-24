@@ -12,7 +12,7 @@
             </ul>
         </div>
     @endif
-
+@if(count($datos)>=1)
     <form action="{{ route('professors.store') }}" method="POST">
         @csrf
 
@@ -24,8 +24,14 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <strong>Profesor ID:</strong>
-                            <input type="text" name="id" class="form-control" placeholder="ID">
+                            <strong>Coordinador:</strong>
+                            <select name="id" class="form-control">
+                                @foreach($datos as $dato)
+                                    <option value="{{$dato->id}}"  selected >
+                                        {{$dato->name}}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -63,5 +69,8 @@
             </div>
         </div>
     </form>
-
+@else
+    <h1>No hay Profesores para asignar cargos</h1>
+@endif
+    
 @endsection

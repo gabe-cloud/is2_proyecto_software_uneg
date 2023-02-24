@@ -33,8 +33,8 @@
         @foreach ($sections as $section)
         <tr>
             <td>{{ $section->id }}</td>
-            <td>{{ $section->career_id }}</td>
-            <td>{{ $section->semesters_id }}</td>
+            <td>{{ $section->carrera->name }}</td>
+            <td>{{ $section->semestres_secciones->semester_number}}</td>
             <td>{{ $section->section_number }}</td>
 
             <td>

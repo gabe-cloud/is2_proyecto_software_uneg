@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
     
 use App\Models\Professor;
+use App\Models\Person;
 use Illuminate\Http\Request;
     
 class ProfessorController extends Controller
@@ -25,7 +26,11 @@ class ProfessorController extends Controller
     
     public function create()
     {
-        return view('professors.create');
+        $profesores = Professor::get();
+        $datos = Sacar_datos_roles('Profesor', $profesores);
+        return view('professors.create', [
+            'datos' => $datos
+        ]);
     }
     
     public function store(Request $request)
@@ -47,7 +52,9 @@ class ProfessorController extends Controller
 
     public function show(Professor $professor)
     {
-        return view('professors.show',compact('professor'));
+        return view('professors.show', [
+            'professor' => $professor
+        ]);
     }
     
     public function edit(Professor $professor)
