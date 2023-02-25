@@ -28,11 +28,10 @@ class StudentPermissionSeeder extends Seeder
         'section-list',
         'section-delete',
         'course-list',
-        'score-list',
-        'score-create',
-        'score-edit',
-        'score-delete',
-        'incription-list',]);       
+        'incription-list',
+        'incription-create',
+        'incription-edit',
+        'incription-delete',]);       
     }
     $admin = User::find(3);
     $admin->assignRole('student'); 
