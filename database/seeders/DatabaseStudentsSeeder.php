@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Models\User;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class DatabaseStudentsSeeder extends Seeder
 {
@@ -119,17 +122,24 @@ class DatabaseStudentsSeeder extends Seeder
         ]);
         DB::table('controls_incriptions')->insert([
             'id' => '4',
-            'incription_id' => '3',
+            'incription_id' => '4',
             'course_id'=> '1'
         ]);     
         DB::table('controls_incriptions')->insert([
             'id' => '5',
-            'incription_id' => '3',
+            'incription_id' => '5',
             'course_id'=> '1'
         ]);                 
     }
     public function usuario()
     {
+        $role = Role::create(['name' => 'Admin']);
+       
+        $permissions = Permission::pluck('id','id')->all();
+     
+        $role->syncPermissions($permissions);
+
+        
         $user = [
             [
                 'name' => 'admin',
@@ -167,7 +177,9 @@ class DatabaseStudentsSeeder extends Seeder
                 'updated_at' => now()
             ],
         ];
-        DB::table('users')->insert($user);      
+        DB::table('users')->insert($user);
+        $admin = User::find(1);
+        $admin->assignRole('admin');    
 
     }
     public function Personas()

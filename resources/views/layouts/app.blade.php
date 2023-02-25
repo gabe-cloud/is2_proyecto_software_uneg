@@ -59,18 +59,35 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
                                                         document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
+                                        @role('professor')
+                                        <a class="dropdown-item" href="{{ route('course-scores.index') }}">Gestión notas</a>
+                                        @endrole
+                                        @can('user-list')    
                                         <a class="dropdown-item" href="{{ route('users.index') }}">Gestión de Usuarios</a>
+                                        @endcan
+                                        @can('role-list')  
                                         <a class="dropdown-item" href="{{ route('roles.index') }}">Gestión de Roles</a>
+                                        @endcan
+                                        @can('person-list')
                                         <a class="dropdown-item" href="{{ route('people.index') }}">Gestión de Personas</a>
+                                        @endcan
                                         <a class="dropdown-item" href="{{ route('coordinators.index') }}">Gestión de Coordinadores</a>
                                         <a class="dropdown-item" href="{{ route('professors.index') }}">Gestión de Profesores</a>
                                         <a class="dropdown-item" href="{{ route('students.index') }}">Gestión de Estudiantes</a> 
                                         <a class="dropdown-item" href="{{ route('semesters.index') }}">Gestión de Semestres</a> 
                                         <a class="dropdown-item" href="{{ route('schedules.index') }}">Gestión de Horarios</a> 
                                         <a class="dropdown-item" href="{{ route('careers.index') }}">Gestión de Carreras</a>
+                                        @can('section-list')    
                                         <a class="dropdown-item" href="{{ route('sections.index') }}">Gestión de Secciones</a> 
+                                        @endcan
+
+                                        @can('course-list')    
                                         <a class="dropdown-item" href="{{ route('courses.index') }}">Gestión de Cursos</a> 
+                                        @endcan
+
+                                        @can('score-edit')                    
                                         <a class="dropdown-item" href="{{ route('scores.index') }}">Gestión de Notas</a>
+                                        @endcan
 
                                         <a class="dropdown-item" href="{{ route('incriptions.index') }}">Ver datos</a>
                                         <a class="dropdown-item" href="{{ route('incriptions.create') }}">Inscribir</a>

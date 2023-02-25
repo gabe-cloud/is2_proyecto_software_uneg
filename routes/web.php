@@ -7,21 +7,17 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\ProfessorController;
+use App\Http\Controllers\ProfessorScoringController;
 use App\Http\Controllers\CoordinatorController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\ScheduleController;
-<<<<<<< HEAD
-use App\Http\Controllers\ProfessorScoringController;
-
-=======
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\IncriptionsController;
   
->>>>>>> 96df72bd08df5694bbace836038bb181d7228359
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,6 +51,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('scores', ScoreController::class);
     Route::resource('sections', SectionController::class);
     Route::resource('semesters', SemesterController::class);
+    Route::resource('course-scores', ProfessorScoringController::class);
+   
     //Rutas del controlador de inscripciones
     Route::resource('incriptions', IncriptionsController::class);
     Route::get('inscripciones/delete/{id_control}/{id_ins}', [IncriptionsController::class,'delete'])->name('inscripciones.delete');
@@ -73,9 +71,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('notas/constancia', [ScoreController::class,'constancia_notas'])->name('notas.constancia');
     Route::get('notas/ver_constancia', [ScoreController::class,'ver_constancia_notas'])->name('notas.ver_constancia');
     
-<<<<<<< HEAD
-    Route::resource('course-scores', ProfessorScoringController::class);
-=======
     Route::resource('courses', CourseController::class);
     Route::resource('scores', ScoreController::class);
     Route::resource('sections', SectionController::class);
@@ -98,7 +93,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('notas/constancia', [ScoreController::class,'constancia_notas'])->name('notas.constancia');
     Route::get('notas/ver_constancia', [ScoreController::class,'ver_constancia_notas'])->name('notas.ver_constancia');
     
->>>>>>> 96df72bd08df5694bbace836038bb181d7228359
 });
 Auth::routes();
 

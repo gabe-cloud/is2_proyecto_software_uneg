@@ -11,8 +11,9 @@ y como se llamadan los valores y rutas, no tiene relacion con el proyecto-->
                 <h2>Gestión de notas</h2>
             </div>
             <div class="pull-right">
+
                 @can('score-create')
-                <a class="btn btn-success" href="{{ route('score.create') }}"> Agregar datos de a una cuenta</a>
+                <a class="btn btn-success" href="{{ route('home') }}"> Agregar datos de a una cuenta</a>
                 @endcan
             </div>
         </div>

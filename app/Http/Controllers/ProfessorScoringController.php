@@ -23,6 +23,8 @@ class ProfessorScoringController extends Controller
         /*
         $scores = Score::latest()->paginate(5);
         */
+        $user = \Auth::user();
+        $id_user = $user->id;
         
         $scores = DB:: table('courses')
             ->join('controls_incriptions', 'controls_incriptions.course_id', '=', 'courses.id' )
