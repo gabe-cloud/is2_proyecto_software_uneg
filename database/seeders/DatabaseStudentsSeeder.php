@@ -81,21 +81,21 @@ class DatabaseStudentsSeeder extends Seeder
                 'semester_id' => '1',
                 'date_admission' => now(),
                 'career_id' => '1',
-                'status' => 'inscrito',
+                'status' => 'Inscrito',
                 'id' => '3'
             ],
             [
                 'semester_id' => '1',
                 'date_admission' => now(),
                 'career_id' => '1',
-                'status' => 'inscrito',
+                'status' => 'Inscrito',
                 'id' => '4'
             ],
             [
                 'semester_id' => '1',
                 'date_admission' => now(),
                 'career_id' => '1',
-                'status' => 'inscrito',
+                'status' => 'Inscrito',
                 'id' => '5'
             ],
         ]; 
