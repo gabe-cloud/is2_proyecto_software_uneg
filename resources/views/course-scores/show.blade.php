@@ -28,26 +28,26 @@ y como se llamadan los valores y rutas, no tiene relacion con el proyecto-->
 
     <table class="table table-bordered">
         <tr>
-            <th>ID</th>
-            <th>CI</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Número de telefono</th>
-            <th>email</th>
-            <th>materia</th>
-            <th>nota</th>
-            <th width="280px">Acciones</th>
+            <th class=" text-white">ID</th>
+            <th class=" text-white">CI</th>
+            <th class=" text-white">Nombre</th>
+            <th class=" text-white">Apellido</th>
+            <th class=" text-white">Número de telefono</th>
+            <th class=" text-white">email</th>
+            <th class=" text-white">materia</th>
+            <th class=" text-white">nota</th>
+            <th class=" text-white" width="280px">Acciones</th>
         </tr>
         @foreach ($scores as $score)
         <tr>
-            <td>{{ $score->id }}</td>
-            <td>{{ $score->ci }}</td>
-            <td>{{ $score->name }}</td>
-            <td>{{ $score->last_name }}</td>
-            <td>{{ $score->phone_number }}</td>
-            <td>{{ $score->email }}</td>
-            <td>{{ $score->type }}</td>
-            <td>{{ $score->score }}</td>
+            <td class=" text-white">{{ $score->id }}</td>
+            <td class=" text-white" >{{ $score->ci }}</td>
+            <td class=" text-white">{{ $score->name }}</td>
+            <td class=" text-white" >{{ $score->last_name }}</td>
+            <td class=" text-white">{{ $score->phone_number }}</td>
+            <td class=" text-white">{{ $score->email }}</td>
+            <td class=" text-white">{{ $score->type }}</td>
+            <td class=" text-white">{{ $score->score }}</td>
             <td>
                 <form action="{{ route('course-scores.destroy',$score->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('course-scores.show',$score->id) }}">Crear/Modificar</a>

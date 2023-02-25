@@ -11,10 +11,6 @@ y como se llamadan los valores y rutas, no tiene relacion con el proyecto-->
                 <h2>Gestión de notas</h2>
             </div>
             <div class="pull-right">
-
-                @can('score-create')
-                <a class="btn btn-success" href="{{ route('home') }}"> Agregar datos de a una cuenta</a>
-                @endcan
             </div>
         </div>
     </div>
@@ -29,37 +25,24 @@ y como se llamadan los valores y rutas, no tiene relacion con el proyecto-->
 
     <table class="table table-bordered">
         <tr>
-            <th>ID</th>
-            <th>CI</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Número de telefono</th>
-            <th>email</th>
-            <th>nota</th>
-            <th width="280px">Acciones</th>
+            <th class=" text-white">ID</th>
+            <th class=" text-white">Cantidad Alumnos</th>
+            <th class=" text-white">Tipo</th>
+            <th class=" text-white">Horario</th>
+            <th width="280px" class=" text-white">>Acciones</th>
         </tr>
         @foreach ($scores as $score)
         <tr>
-            <td>{{ $score->id }}</td>
-            <td>{{ $score->ci }}</td>
-            <td>{{ $score->name }}</td>
-            <td>{{ $score->last_name }}</td>
-            <td>{{ $score->phone_number }}</td>
-            <td>{{ $score->email }}</td>
-            <td>{{ $score->score }}</td>
+            <td class=" text-white">{{ $score->id }}</td>
+            <td class=" text-white">{{ $score->ci }}</td>
+            <td class=" text-white">{{ $score->type }}</td>
+            <td class=" text-white">{{ $score->phone_number }}</td>
             <td>
                 <form action="{{ route('course-scores.destroy',$score->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('course-scores.show',$score->id) }}">Crear/Modificar</a>
-                    @can('score-edit')
-                    <a class="btn btn-primary" href="{{ route('course-scores.edit',$score->id) }}">Editar</a>
-                    @endcan
+                    <a class="btn btn-info" href="{{ route('course-scores.show',$score->id) }}">verr</a>
 
 
-                    @csrf
-                    @method('DELETE')
-                    @can('score-delete')
-                    <button type="submit" class="btn btn-danger">Borrar</button>
-                    @endcan
+
                 </form>
             </td>
         </tr>

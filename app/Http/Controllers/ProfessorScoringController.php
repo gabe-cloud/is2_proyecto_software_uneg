@@ -15,7 +15,7 @@ class ProfessorScoringController extends Controller
   
     function __construct() 
     {
-
+        $this->middleware('role:professor|admin', ['only' => ['index','show']]);
     }
  
     public function index()
@@ -27,17 +27,9 @@ class ProfessorScoringController extends Controller
         $id_user = $user->id;
         
         $scores = DB:: table('courses')
-            ->join('controls_incriptions', 'controls_incriptions.course_id', '=', 'courses.id' )
-            ->join('incriptions' , 'controls_incriptions.incription_id', '=', 'incriptions.id')
-            ->join('people', 'people.id', '=', 'incriptions.student_id')
-            //->leftJoin('scores', 'scores.student_id', '=', 'people.id')
-            ->leftJoin('scores', function($join){
-                $join->on("scores.student_id","=","incriptions.student_id")
-                     ->on("scores.course_id","=","courses.id");
-            })
-            ->where('courses.id', '=', '1')
-            ->selectraw("people.id AS id, courses.section_id as section, courses.course_type as type, people.ci as ci, people.phone_number as
-            phone_number,people.name as name, people.email as email, people.last_name as last_name, scores.score as score")
+            ->where('courses.professor_id', '=', $id_user)
+            ->selectraw("courses.id AS id, courses.id as section, courses.course_type as type, courses.id as ci, courses.id as
+            phone_number,courses.id as name, courses.id as email,courses.id as last_name, courses.id as score")
             
             ->get();
 
