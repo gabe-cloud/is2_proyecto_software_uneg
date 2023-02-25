@@ -88,11 +88,13 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
                                         @can('score-edit')                    
                                         <a class="dropdown-item" href="{{ route('scores.index') }}">Gestión de Notas</a>
                                         @endcan
-
-                                        <a class="dropdown-item" href="{{ route('incriptions.index') }}">Ver datos</a>
+                                        @role('student')
+                                        
+                                        <a class="dropdown-item" href="{{ route('incriptions.index') }}">Ver datos</a>                                        
                                         <a class="dropdown-item" href="{{ route('incriptions.create') }}">Inscribir</a>
                                         <a class="nav-link" href="{{ route('horario.mi_horario') }}">Horario clases</a>
-                        
+
+                                        @endrole
                                         <a class="nav-link" href="{{ route('notas.notas_estudiantes') }}">Notas</a>
 
 
