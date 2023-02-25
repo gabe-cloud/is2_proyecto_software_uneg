@@ -21,7 +21,7 @@ como prefieran.-->
 
 <div class="row">
     @if(isset($notas))
-        <table class="table table-bordered">
+        <table class="table table-bordered text-white bg-secondary p-2">
             <tr>
                 <th>No</th>
                 <th>Descripcion</th>

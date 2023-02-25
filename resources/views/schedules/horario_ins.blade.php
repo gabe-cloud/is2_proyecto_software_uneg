@@ -19,7 +19,7 @@ como prefieran.-->
     </div>
 @endif
 
-<table class="table table-bordered">
+<table class="table table-bordered text-white bg-secondary p-2">
     <tr>
         <th>Dia</th>
         <th>Hora Entrada</th>
