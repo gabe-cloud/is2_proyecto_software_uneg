@@ -31,12 +31,12 @@ class StudentPermissionSeeder extends Seeder
         'incription-list',
         'incription-create',
         'incription-edit',
-        'incription-delete',]);       
+        'incription-delete']);    
+        $student = User::find(3);
+        $student->assignRole('student'); 
+        $student = User::find(4);
+        $student->assignRole('student'); 
+        $student = User::find(5);
+        $student->assignRole('student'); 
     }
-    $admin = User::find(3);
-    $admin->assignRole('student'); 
-    $admin = User::find(4);
-    $admin->assignRole('student'); 
-    $admin = User::find(5);
-    $admin->assignRole('student'); 
 }
