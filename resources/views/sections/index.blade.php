@@ -24,7 +24,7 @@
             <th>ID carrera</th>
             <th>ID semestre</th>
             <th>Número de sección</th>
-            <th width="235px">Acciones</th>
+            <th width="250px">Acciones</th>
         </tr>
         @foreach ($sections as $section)
         <tr>

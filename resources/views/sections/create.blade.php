@@ -63,6 +63,8 @@
         </div>
     </form>
 @else
-<h1>No hay secciones o carreras por favor crealas primero</h1>
+<div class="container">
+    <h1>No hay secciones o carreras por favor crealas primero</h1>
+</div>
 @endif
 @endsection

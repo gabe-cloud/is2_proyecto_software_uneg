@@ -26,7 +26,7 @@
             <th>Estudiante ID</th>
             <th>Nota</th>
             <th>Fecha de nota</th>
-            <th width="235px">Acciones</th>
+            <th width="250px">Acciones</th>
         </tr>
         @foreach ($scores as $score)
         <tr>

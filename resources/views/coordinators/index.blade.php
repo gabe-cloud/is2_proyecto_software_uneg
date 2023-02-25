@@ -26,7 +26,7 @@
             <th>Nombre y Apellido</th>
             <th>Cargo</th>
             <th>Fecha de ingreso</th>
-            <th width="235px">Acciones</th>
+            <th width="250px">Acciones</th>
         </tr>
         @foreach ($coordinators as $coordinator)
         <tr>

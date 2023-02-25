@@ -26,7 +26,7 @@
             <th>Carrera</th>
             <th>Horario</th>
             <th>Unidades de credito</th>
-            <th width="235px">Acciones</th>
+            <th width="250px">Acciones</th>
         </tr>
         @foreach ($courses as $course)
         <tr>

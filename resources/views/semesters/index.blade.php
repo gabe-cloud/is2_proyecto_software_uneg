@@ -22,7 +22,7 @@
         <tr>
             <th>ID semestre</th>
             <th>Número de semestre</th>
-            <th width="235px">Acciones</th>
+            <th width="250px">Acciones</th>
         </tr>
         @foreach ($semesters as $semester)
         <tr>

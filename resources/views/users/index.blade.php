@@ -24,7 +24,7 @@
                 <th>Nombre</th>
                 <th>Email</th>
                 <th>Rol</th>
-                <th width="235px">Acciones</th>
+                <th width="250px">Acciones</th>
             </tr>
             <tbody>
                 @foreach ($data as $key => $user) <!--Funciona como un for-->
