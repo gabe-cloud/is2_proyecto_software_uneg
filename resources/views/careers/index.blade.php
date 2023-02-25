@@ -25,7 +25,7 @@
             <th>Coordinador</th>
             <th>Tipo de carrera</th>
             <th>Nombre de carrera</th>
-            <th width="235px">Acciones</th>
+            <th width="250px">Acciones</th>
         </tr>
         @foreach ($careers as $career)
         <tr>

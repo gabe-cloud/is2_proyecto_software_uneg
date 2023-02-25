@@ -25,7 +25,7 @@
             <th>Carrera</th>
             <th>Fecha de ingreso</th>
             <th>Estado</th>
-            <th width="235px">Acciones</th>
+            <th width="250px">Acciones</th>
         </tr>
         @foreach ($students as $student)
         <tr>

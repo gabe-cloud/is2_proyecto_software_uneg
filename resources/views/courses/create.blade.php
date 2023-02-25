@@ -94,11 +94,13 @@
         </div>
     </form>
 @else
+<div class="container">
     <h1>No es posible crear una Materia ya que hacen falta datos importantes como lo son: </h1>
     <p>Crear Horarios</p>
     <p>Crear Secciones</p>
     <p>Crear Profesores</p>
     <p>Crear Carreras</p>
+</div>   
 @endif
 
 @endsection

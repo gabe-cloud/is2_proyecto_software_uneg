@@ -24,7 +24,7 @@
             <th>Profeseción</th>
             <th>Fecha de ingreso</th>
             <th>Tipo de profesor</th>
-            <th width="235px">Acciones</th>
+            <th width="250px">Acciones</th>
         </tr>
         @foreach ($professors as $professor)
         <tr>
