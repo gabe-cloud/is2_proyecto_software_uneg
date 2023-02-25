@@ -3,10 +3,10 @@ header para cada vista del programa -->
 @extends('layouts.app')
 
 @section('content')
+
 <section id="opciones" class="opciones">
     <div class="contenido-seccion">
-        <h2>BIENVNIDO</h2>
-        
+        <h2>BIENVENIDO</h2>
         <p>La <span>Universidad Nacional Experimental de Guayana</span> esta feliz de que formes parte de la poblacion estudiantil, en este sistema encontraras todas las opciones para gestionar tu informació</p>
 
         @if ($message = Session::get('Error'))
@@ -27,19 +27,19 @@ header para cada vista del programa -->
                     </li>
                     <li>
                         <strong>Telefono</strong>
-                        +58-424-9162687
+                        +58-424-1234567
                     </li>
                     <li>
-                        <strong>Website</strong>
-                        example.com
+                        <strong>E-mail</strong>
+                        correo@example.com
                     </li>
                     <li>
                         <strong>Direccion</strong>
                         Una direccion cualquiera
                     </li>
                     <li>
-                        <strong>Cargo</strong>
-                        <span>FREELANCE</span>
+                        <strong>Status</strong>
+                        <span>INSCRITO</span>
                     </li>
                 </ul>
             </div>
