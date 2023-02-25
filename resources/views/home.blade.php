@@ -19,7 +19,7 @@ header para cada vista del programa -->
         <div class="fila">
             <!--datos personales-->
             <div class="col">
-                <h3>Datos Pesonales</h3>
+                <h2>Datos Pesonales</h2>
                 <ul>
                     <li>
                         <strong>Cumpleaños</strong>
@@ -46,7 +46,7 @@ header para cada vista del programa -->
 
             <!--opcion-->
             <div class="col">
-                <h3>opcion</h3>
+                <h2>opcion</h2>
                 <div class="contenedor-opcion">
                     <div class="opcion">
                         <i class="fa-solid fa-gamepad"></i>
