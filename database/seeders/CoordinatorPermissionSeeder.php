@@ -24,14 +24,6 @@ class CoordinatorPermissionSeeder extends Seeder
         'professor-create',
         'professor-edit',
         'professor-delete',
-        'coordinator-list',
-        'coordinator-create',
-        'coordinator-edit',
-        'coordinator-delete',
-        'student-list',
-        'student-create',
-        'student-edit',
-        'student-delete',
         'semester-list',
         'semester-create',
         'semester-edit',
@@ -51,13 +43,7 @@ class CoordinatorPermissionSeeder extends Seeder
         'course-create',
         'course-edit',
         'course-delete',
-        'score-list',
-        'score-create',
-        'score-edit',
-        'score-delete',          
-        'incription-list',
-        'incription-create',
-        'incription-edit',
-        'incription-delete']); 
+        'score-list',                 
+        'incription-list']); 
     }
 }

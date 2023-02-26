@@ -8,7 +8,7 @@ y como se llamadan los valores y rutas, no tiene relacion con el proyecto-->
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Gestión de notas</h2>
+                <h2>Cursos Cargados</h2>
             </div>
             <div class="pull-right">
             </div>

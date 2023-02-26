@@ -20,14 +20,10 @@ class StudentPermissionSeeder extends Seeder
       
         $role = Role::create(['name' => 'student'])
         ->givePermissionTo(['professor-list',
-        'coordinator-list',
-        'student-list',
-        'semester-list',
+
         'schedule-list',
-        'career-list',
-        'section-list',
-        'section-delete',
         'course-list',
+        'score-list',
         'incription-list',
         'incription-create',
         'incription-edit',

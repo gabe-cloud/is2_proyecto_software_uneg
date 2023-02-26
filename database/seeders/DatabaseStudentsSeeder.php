@@ -133,12 +133,6 @@ class DatabaseStudentsSeeder extends Seeder
     }
     public function usuario()
     {
-        $role = Role::create(['name' => 'Admin']);
-       
-        $permissions = Permission::pluck('id','id')->all();
-     
-        $role->syncPermissions($permissions);
-
         
         $user = [
             [
@@ -178,9 +172,6 @@ class DatabaseStudentsSeeder extends Seeder
             ],
         ];
         DB::table('users')->insert($user);
-        $admin = User::find(1);
-        $admin->assignRole('admin');    
-
     }
     public function Personas()
     {

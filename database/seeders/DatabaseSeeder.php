@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             ProfessorPermissionSeeder::class,
             CoordinatorPermissionSeeder::class,
             StudentPermissionSeeder::class,
+            CreateAdminUserSeeder::class
         ]);
     }
 }

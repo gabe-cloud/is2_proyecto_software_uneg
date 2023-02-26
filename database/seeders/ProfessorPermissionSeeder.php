@@ -19,21 +19,14 @@ class ProfessorPermissionSeeder extends Seeder
     {
       
         $role = Role::create(['name' => 'professor'])
-        ->givePermissionTo(['professor-list',
-        'coordinator-list',
-        'student-list',
-        'semester-list',
+        ->givePermissionTo([
         'schedule-list',
-        'career-list',
-        'section-list',
-        'section-delete',
         'course-list',
         'score-list',
         'score-create',
         'score-edit',
-        'score-delete',
-        'incription-list',]); 
+        'score-delete']); 
         $admin = User::find(2);
-         $admin->assignRole('professor');       
+        $admin->assignRole('professor');       
     }
 }
