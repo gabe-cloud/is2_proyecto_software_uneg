@@ -12,7 +12,7 @@
             </ul>
         </div>
     @endif
-
+@if(count($datos)>=1 && count($carreras) >=1)
     <form action="{{ route('students.store') }}" method="POST">
         @csrf
 
@@ -24,20 +24,27 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <strong>Estudiante ID:</strong>
-                            <input type="text" name="id" class="form-control" placeholder="ID">
+                            <strong>Estudiante:</strong>
+                            <select name="id" class="form-control">
+                                @foreach($datos as $dato)
+                                    <option value="{{$dato->id}}"  selected >
+                                        {{$dato->name}}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
+                    <input type="hidden" name="semester_id" value="1">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <strong>Semestre ID:</strong>
-                            <input type="text" name="semester_id" class="form-control" placeholder="Semestre ID">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <strong>Carrera ID:</strong>
-                            <input type="text" name="career_id" class="form-control" placeholder="Carrera ID">
+                            <strong>Carrera:</strong>
+                            <select name="career_id" class="form-control">
+                                @foreach($carreras as $carrera)
+                                    <option value="{{$carrera->id}}"  selected >
+                                        {{$carrera->name}}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -46,12 +53,8 @@
                             <input type="date" name="date_admission" class="form-control" placeholder="Fecha">
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <strong>Status:</strong>
-                            <input type="text" name="status" class="form-control" placeholder="Status">
-                        </div>
-                    </div>
+                    <input type="hidden" name="status" value="No inscrito">
+                    
                     <div class="text-center">
                             <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
@@ -62,5 +65,7 @@
             </div>
         </div>
     </form>
-
+@else
+    <h1>No hay Estudiantes o carreras para asignar </h1>
+@endif
 @endsection

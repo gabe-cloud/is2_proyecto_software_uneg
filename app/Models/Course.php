@@ -37,5 +37,9 @@ class Course extends Model
         return $this->belongsTo('App\Models\Professor', 'professor_id');
     
     }
+    public function carrera(){
+        return $this->belongsTo('App\Models\Career', 'career_id');
+    
+    }
 
 }

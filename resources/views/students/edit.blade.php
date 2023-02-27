@@ -24,19 +24,19 @@
         </div>
     @endif
 
-
+    @if ($message = Session::get('Error'))
+        <div class="alert alert-danger">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
     <form action="{{ route('students.update',$student->id) }}" method="POST">
         @csrf
         @method('PUT')
 
 
          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Estudiante ID:</strong>
-                    <input type="text" name="id" value="{{ $student->id }}" class="form-control" placeholder="ID">
-                </div>
-            </div>
+            <input type="hidden" name="id" value="{{ $student->id }}">
+            <input type="hidden" name="status" value="{{ $student->status }}">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Semestre ID:</strong>
@@ -53,12 +53,6 @@
                 <div class="form-group">
                     <strong>Fecha de ingreso:</strong>
                     <input type="text" name="date_admission" value="{{ $student->date_admission }}" class="form-control" placeholder="Fecha de ingreso">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Status:</strong>
-                    <input type="text" name="status" value="{{ $student->status }}" class="form-control" placeholder="Status">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

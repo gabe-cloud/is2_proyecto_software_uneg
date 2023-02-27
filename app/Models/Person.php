@@ -21,5 +21,17 @@ class Person extends Model
 
     protected $table = 'people';
 
-    
+    public function Coordinador(){
+        return $this->belongsTo('App\Models\Coordinator', 'id');
+    }
+
+    public function Estudiante(){
+        return $this->belongsTo('App\Models\Student', 'id');
+    }
+
+    public function Profesor(){
+        return $this->belongsTo('App\Models\Professor', 'id');
+    }
+
+
 }

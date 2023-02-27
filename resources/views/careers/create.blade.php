@@ -18,20 +18,20 @@
 
         <div class="container col-xs-3 col-sm-3 col-md-3 ">
             <div class="row justify-content-center">
-                <div class="card">
+                <div class="card bg-secondary">
                     <div>
                         <h3>Menu de creación de nueva carrera</h3>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <strong>Carrera ID:</strong>
-                            <input type="text" name="id" class="form-control" placeholder="ID">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <strong>Coordinador ID:</strong>
-                            <input type="text" name="coordinator_id" class="form-control" placeholder="Coordinador ID">
+                            <strong>Coordinador:</strong>
+                            <select name="coordinator_id" class="form-control">
+                                @foreach($datos as $dato)
+                                    <option value="{{$dato->id}}"  selected >
+                                        {{$dato->datos->name}}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -47,10 +47,8 @@
                         </div>
                     </div>
                     <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                    <div>
-                        <a class="btn btn-primary" href="{{ route('careers.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('careers.index') }}"> Back</a>
+                            <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                 </div>
             </div>

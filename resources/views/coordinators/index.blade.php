@@ -23,14 +23,14 @@
 
     <table class="table table-bordered text-white bg-secondary p-2">
         <tr>
-            <th>ID</th>
+            <th>Nombre y Apellido</th>
             <th>Cargo</th>
             <th>Fecha de ingreso</th>
-            <th width="235px">Acciones</th>
+            <th width="250px">Acciones</th>
         </tr>
         @foreach ($coordinators as $coordinator)
         <tr>
-            <td>{{ $coordinator->id }}</td>
+            <td>{{ $coordinator->datos->name }} {{ $coordinator->datos->last_name }}</td>
             <td>{{ $coordinator->appointment }}</td>
             <td>{{ $coordinator->date_admission }}</td>
             <td>

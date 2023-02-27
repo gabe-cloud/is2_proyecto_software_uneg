@@ -22,8 +22,8 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Coordinador ID:</strong>
-                {{ $career->coordinator_id }}
+                <strong>Coordinador</strong>
+                {{ $career->coordinador->datos->name }} {{ $career->coordinador->datos->last_name }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

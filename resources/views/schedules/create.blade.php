@@ -18,15 +18,9 @@
 
         <div class="container col-xs-3 col-sm-3 col-md-3 ">
             <div class="row justify-content-center">
-                <div class="card">
+                <div class="card bg-secondary">
                     <div>
                         <h3>Menu de creación nuevo horario</h3>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <strong>Horario ID:</strong>
-                            <input type="text" name="id" class="form-control" placeholder="Horario ID">
-                        </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
@@ -48,10 +42,8 @@
                     </div>
                     
                     <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                    <div>
-                        <a class="btn btn-primary" href="{{ route('schedules.index') }}"> Regresar</a>
+                            <a class="btn btn-primary" href="{{ route('schedules.index') }}"> Regresar</a>
+                            <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                 </div>
             </div>

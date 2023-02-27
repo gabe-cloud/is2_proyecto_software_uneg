@@ -13,20 +13,29 @@
         </div>
     @endif
 
+@if(count($datos)>=1)
+    
+
     <form action="{{ route('people.store') }}" method="POST">
         @csrf
 
         <div class="container col-xs-3 col-sm-3 col-md-3 ">
             <div class="row justify-content-center">
-                <div class="card">
+                <div class="card bg-secondary">
                     <div>
                         <h3>Vincular persona a usuario</h3>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <strong>ID de usuario:</strong>
-                            <input type="text" name="id" class="form-control" placeholder="ID">
-                        </div>
+                            <strong>Usuario:</strong>
+                            <select name="id" class="form-control">
+                                @foreach($datos as $dato)
+                                    <option value="{{$dato->id}}"  selected >
+                                        {{$dato->name}}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>    
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
@@ -65,14 +74,15 @@
                         </div>
                     </div>
                     <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                    <div>
-                        <a class="btn btn-primary" href="{{ route('people.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('people.index') }}"> Back</a>
+                            <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-
+@else
+<h1>No hay usuarios para asignar a una persona</h1>
+<h2>Por favor cree un nuevo usuario para poder asignarlo a una persona</h2>
+@endif
 @endsection
