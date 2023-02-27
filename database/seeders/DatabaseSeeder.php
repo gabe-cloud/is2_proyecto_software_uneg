@@ -20,5 +20,13 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $this->call([
+            PermissionTableSeeder::class,
+            DatabaseStudentsSeeder::class,
+            ProfessorPermissionSeeder::class,
+            CoordinatorPermissionSeeder::class,
+            StudentPermissionSeeder::class,
+            CreateAdminUserSeeder::class
+        ]);
     }
 }

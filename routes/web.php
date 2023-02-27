@@ -7,6 +7,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\ProfessorController;
+use App\Http\Controllers\ProfessorScoringController;
 use App\Http\Controllers\CoordinatorController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CareerController;
@@ -46,6 +47,30 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('students', StudentController::class);
     Route::resource('careers', CareerController::class);
     Route::resource('schedules', ScheduleController::class);
+    Route::resource('courses', CourseController::class);
+    Route::resource('scores', ScoreController::class);
+    Route::resource('sections', SectionController::class);
+    Route::resource('semesters', SemesterController::class);
+    Route::resource('course-scores', ProfessorScoringController::class);
+   
+    //Rutas del controlador de inscripciones
+    Route::resource('incriptions', IncriptionsController::class);
+    Route::get('inscripciones/delete/{id_control}/{id_ins}', [IncriptionsController::class,'delete'])->name('inscripciones.delete');
+    Route::get('inscripciones/cambio/{id_control}/{nombre_asig}/{carrera}', [IncriptionsController::class,'cambio'])->name('inscripciones.cambio');
+    Route::get('inscripciones/adicionar', [IncriptionsController::class,'adicionar'])->name('inscripciones.adicion');
+    Route::post('inscripciones/update-seccion', [IncriptionsController::class,'seccion_ca'])->name('inscripciones.update_seccion');
+    Route::post('inscripciones/save_adicion', [IncriptionsController::class,'save_adicion'])->name('inscripciones.save_adicion');
+    Route::get('inscripciones/constancia', [IncriptionsController::class,'constancia_ins'])->name('inscripciones.constancia');
+    Route::get('inscripciones/verconstancia', [IncriptionsController::class,'ver_constancia'])->name('inscripciones.ver_constancia');
+    
+    //Rutas de horarios
+    Route::get('horarios/mi_horario', [ScheduleController::class,'horario_ins'])->name('horario.mi_horario');
+    //Rutas notas
+    Route::get('notas/estudiantes', [ScoreController::class,'notas_estudiantes'])->name('notas.notas_estudiantes');
+    Route::get('notas/descripcion/{id}', [ScoreController::class,'ver_notas'])->name('notas.ver');
+    Route::get('notas/constancia', [ScoreController::class,'constancia_notas'])->name('notas.constancia');
+    Route::get('notas/ver_constancia', [ScoreController::class,'ver_constancia_notas'])->name('notas.ver_constancia');
+    
     Route::resource('courses', CourseController::class);
     Route::resource('scores', ScoreController::class);
     Route::resource('sections', SectionController::class);
