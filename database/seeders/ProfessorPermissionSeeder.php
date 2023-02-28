@@ -25,8 +25,6 @@ class ProfessorPermissionSeeder extends Seeder
         'score-list',
         'score-create',
         'score-edit',
-        'score-delete']); 
-        $admin = User::find(2);
-        $admin->assignRole('professor');       
+        'score-delete']);  
     }
 }

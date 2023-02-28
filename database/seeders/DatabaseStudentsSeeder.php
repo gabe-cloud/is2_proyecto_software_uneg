@@ -30,20 +30,32 @@ class DatabaseStudentsSeeder extends Seeder
         $this->usuario();
         $this->Personas();
         $this->estudiantes();
+        $Admin = User::find(1); //Hace que el primer usuario sea admin
+        $Admin->assignRole('Admin'); 
+        $user = User::find(2);
+        $user->assignRole('professor');   
+        $user = User::find(3);
+        $user->assignRole('student'); 
+        $user = User::find(4);
+        $user->assignRole('student'); 
+        $user = User::find(5);
+        $user->assignRole('student'); 
+        $user = User::find(6);
+        $user->assignRole('coordinator'); 
     }
     //Crea una tabla para el coordinaror, una para el profesor une de un semestre, la carrera y 3 estudiantes.
     public function estudiantes()
     {
        
         DB::table('coordinators')->insert([
-            'id' => '1',
-            'appointment' => 'no',
+            'id' => '6',
+            'appointment' => 'Ingeneria en informatica',
             'date_admission' => now()
         ]);
         DB::table('professors')->insert([
             'id' => '2',
             'profession' => 'Maestria en matematicas',
-            'professor_type' => 'normal',
+            'professor_type' => 'normal', 
             'date_admission' => now()
         ]);
         DB::table('semesters')->insert([
@@ -54,7 +66,7 @@ class DatabaseStudentsSeeder extends Seeder
             'id' => '1',
             'career_type' => 'tecnologica',
             'name' => 'ingeneria en informatica',
-            'coordinator_id' => '1'
+            'coordinator_id' => '6'
         ]);
         DB::table('sections')->insert([
             'id' => '1',
@@ -170,8 +182,18 @@ class DatabaseStudentsSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now()
             ],
+            [
+                'name' => 'gprueba6',
+                'email' => 'coord@gmail.com',
+                'password' => Hash::make('password'),
+                'created_at' => now(),
+                'updated_at' => now()
+            ]
         ];
         DB::table('users')->insert($user);
+
+
+    
     }
     public function Personas()
     {
@@ -220,6 +242,15 @@ class DatabaseStudentsSeeder extends Seeder
                 'address' =>  Str::random(10),
                 'email' =>  Str::random(10),
                 'id' => '5'
+            ],
+            [
+                'ci' => '123458',
+                'name' => 'Gregory',
+                'last_name' =>  Str::random(5),
+                'phone_number' => Str::random(10),
+                'address' =>  Str::random(10),
+                'email' =>  Str::random(10),
+                'id' => '6'
             ],
         ]; 
         DB::table('people')->insert($people);      

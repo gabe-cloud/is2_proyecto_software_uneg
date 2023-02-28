@@ -73,7 +73,5 @@ class CreateAdminUserSeeder extends Seeder
             'course-create',
             'course-edit',
             'course-delete']); 
-            $Admin = User::find(1);
-            $Admin->assignRole('Admin'); 
     }
 }
