@@ -20,20 +20,24 @@ como prefieran.-->
 @endif
 
 <table class="table table-bordered text-white bg-secondary p-2">
+    @if(isset($schedules) && !empty($schedules))
     <tr>
         <th>Dia</th>
         <th>Hora Entrada</th>
         <th>Hora Salida</th>
     </tr>
     
-    @foreach ($schedules as $key => $schedul)
-    <tr>
-        
-        <td>{{ $schedul->asignaturas_control_ins->horario->day }}</td>
-        <td>{{ $schedul->asignaturas_control_ins->horario->entry_time }}</td>
-        <td>{{ $schedul->asignaturas_control_ins->horario->departure_time }}</td>
-    </tr>
-    @endforeach
+        @foreach ($schedules as $key => $schedul)
+        <tr>
+            
+            <td>{{ $schedul->asignaturas_control_ins->horario->day }}</td>
+            <td>{{ $schedul->asignaturas_control_ins->horario->entry_time }}</td>
+            <td>{{ $schedul->asignaturas_control_ins->horario->departure_time }}</td>
+        </tr>
+        @endforeach
+    @else
+        <h1>No tienes materias inscritas</h1>
+    @endif
 </table>
 
 
