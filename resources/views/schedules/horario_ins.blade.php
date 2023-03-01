@@ -4,37 +4,39 @@
 como prefieran.-->
  <!-- Esta vista tiene el mismo funcionamiento de users/index se encarga de crear una tabla con los roles creados y da opcion de crear/editar/eliminar.-->
 @section('content')
-<div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2>Horario de clases</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2>Horario de clases</h2>
+            </div>
         </div>
     </div>
-</div>
 
 
-@if ($message = Session::get('success'))
-    <div class="alert alert-success">
-        <p>{{ $message }}</p>
-    </div>
-@endif
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
 
-<table class="table table-bordered text-white bg-secondary p-2">
-    <tr>
-        <th>Dia</th>
-        <th>Hora Entrada</th>
-        <th>Hora Salida</th>
-    </tr>
-    
-    @foreach ($schedules as $key => $schedul)
-    <tr>
+    <table class="table table-bordered text-white bg-secondary p-2">
+        <tr>
+            <th>Dia</th>
+            <th>Hora Entrada</th>
+            <th>Hora Salida</th>
+        </tr>
         
-        <td>{{ $schedul->asignaturas_control_ins->horario->day }}</td>
-        <td>{{ $schedul->asignaturas_control_ins->horario->entry_time }}</td>
-        <td>{{ $schedul->asignaturas_control_ins->horario->departure_time }}</td>
-    </tr>
-    @endforeach
-</table>
+        @foreach ($schedules as $key => $schedul)
+        <tr>
+            
+            <td>{{ $schedul->asignaturas_control_ins->horario->day }}</td>
+            <td>{{ $schedul->asignaturas_control_ins->horario->entry_time }}</td>
+            <td>{{ $schedul->asignaturas_control_ins->horario->departure_time }}</td>
+        </tr>
+        @endforeach
+    </table>
+</div>
 
 
 @endsection

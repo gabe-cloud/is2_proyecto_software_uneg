@@ -48,8 +48,8 @@ como prefieran.-->
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
-            <button type="submit" class="btn btn-success">Submit</button>
+            <a class="btn btn-primary" href="{{ route('roles.index') }}"> Atras</a>
+            <button type="submit" class="btn btn-success">Guardar</button>
         </div>
     </div>
 </div>

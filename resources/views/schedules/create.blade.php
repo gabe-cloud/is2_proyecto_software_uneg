@@ -42,7 +42,7 @@
                     </div>
                     
                     <div class="text-center">
-                            <a class="btn btn-primary" href="{{ route('schedules.index') }}"> Regresar</a>
+                            <a class="btn btn-primary" href="{{ route('schedules.index') }}"> Atras</a>
                             <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                 </div>
