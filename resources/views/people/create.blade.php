@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <div class="text-center">
-                            <a class="btn btn-primary" href="{{ route('people.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('people.index') }}"> Atras</a>
                             <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                 </div>
@@ -82,7 +82,9 @@
         </div>
     </form>
 @else
-<h1>No hay usuarios para asignar a una persona</h1>
-<h2>Por favor cree un nuevo usuario para poder asignarlo a una persona</h2>
+<div class="container">
+    <h1>No hay usuarios para asignar a una persona</h1>
+    <h2>Por favor cree un nuevo usuario para poder asignarlo a una persona</h2>
+</div>
 @endif
 @endsection

@@ -21,7 +21,7 @@
     <table class="table table-bordered text-white bg-secondary p-2">
         <tr>
             <th>Nombre y Apellido</th>
-            <th>Profeseción</th>
+            <th>Profesión</th>
             <th>Fecha de ingreso</th>
             <th>Tipo de profesor</th>
             <th width="250px">Acciones</th>

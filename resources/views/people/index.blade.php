@@ -30,7 +30,7 @@ y como se llamadan los valores y rutas-->
             <th>Apellido</th>
             <th>Número de telefono</th>
             <th>Dirección</th>
-            <th>Personal email</th>
+            <th>Correo Personal</th>
             <th width="250px">Acciones</th>
         </tr>
         @foreach ($people as $person)
