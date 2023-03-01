@@ -28,7 +28,7 @@ class StudentController extends Controller
     public function create()
     {
         $estudiantes = Student::get();
-        $datos = Sacar_datos_roles('Estudiante', $estudiantes);
+        $datos = Sacar_datos_roles('student', $estudiantes);
         $carreras = Career::get();
         
         return view('students.create',[
