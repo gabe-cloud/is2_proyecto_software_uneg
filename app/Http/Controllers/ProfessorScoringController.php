@@ -26,15 +26,17 @@ class ProfessorScoringController extends Controller
         $user = \Auth::user();
         $id_user = $user->id;
         
-        $scores = DB:: table('courses')
+        $prof_scoring = DB:: table('courses')
+            ->leftjoin('controls_incriptions', 'controls_incriptions.course_id', '=', 'courses.id')            
+            ->leftjoin('schedules', 'schedules.id', '=', 'courses.schedules_id')            
+            ->selectraw("courses.id AS id, count(controls_incriptions.id) as student_count, courses.course_type as type,
+            schedules.entry_time as entry_time,  schedules.departure_time as departure_time")
             ->where('courses.professor_id', '=', $id_user)
-            ->selectraw("courses.id AS id, courses.id as section, courses.course_type as type, courses.id as ci, courses.id as
-            phone_number,courses.id as name, courses.id as email,courses.id as last_name, courses.id as score")
-            
+            ->groupBy('courses.id')
             ->get();
 
         //$scores = Score::latest()->paginate(5);
-            return view('course-scores.index',compact('scores'))
+            return view('course-scores.index',compact('prof_scoring'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
     
@@ -51,7 +53,7 @@ class ProfessorScoringController extends Controller
 
     public function show($id) //Metodo que muestra todos los alumnos de una asignatura y muestran sus notas si tiene
     {
-        $scores = DB:: table('courses')
+        $prof_scoring = DB:: table('courses')
         ->join('controls_incriptions', 'controls_incriptions.course_id', '=', 'courses.id' )
         ->join('incriptions' , 'controls_incriptions.incription_id', '=', 'incriptions.id')
         ->join('people', 'people.id', '=', 'incriptions.student_id')
@@ -65,7 +67,7 @@ class ProfessorScoringController extends Controller
         ->get();
 
 
-        return view('course-scores.show',compact('scores'))
+        return view('course-scores.show',compact('prof_scoring'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
     

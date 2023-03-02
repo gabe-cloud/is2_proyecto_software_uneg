@@ -140,8 +140,7 @@ class ScoreController extends Controller
 
     function __construct()
     {
-         $this->middleware('permission:score-list|score-create|score-edit|score-delete', ['only' => ['index','show']]);
-         $this->middleware('role:student', ['only' => ['notas_estudiantes']]);
+         $this->middleware('permission:score-list|score-create|score-edit|score-delete', ['only' => ['index','show', 'notas_estudiantes']]);
          $this->middleware('permission:score-create', ['only' => ['create','store']]);
          $this->middleware('permission:score-edit', ['only' => ['edit','update']]);
          $this->middleware('permission:score-delete', ['only' => ['destroy']]);
@@ -149,13 +148,7 @@ class ScoreController extends Controller
  
     public function index()
     {
-        $user = \Auth::user();
-        $id_user = $user->id;
-
-        $scores = Score::latest('scores.created_at')
-        ->join('courses', 'scores.course_id', '=', 'courses.id' )
-        ->where('courses.professor_id','=',$id_user)
-        ->paginate(5);
+        $scores = Score::latest()->paginate(5);
         return view('scores.index',compact('scores'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -168,7 +161,7 @@ class ScoreController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            //'id' => 'required',
+            'id' => 'required',
             'course_id' => 'required',
             'description' => 'required',
             'student_id' => 'required',

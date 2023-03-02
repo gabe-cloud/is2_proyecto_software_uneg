@@ -1,7 +1,5 @@
 @extends('layouts.app') <!-- Se exporta la vista layouts-->
 
-<!-- Esta carpeta scores solo es creada de guia a la hora de realizar vistas de CRUD para que observen como esta estructurada 
-y como se llamadan los valores y rutas, no tiene relacion con el proyecto-->
 
 
 @section('content')
@@ -39,7 +37,7 @@ y como se llamadan los valores y rutas, no tiene relacion con el proyecto-->
             <!--
             <th class=" text-white" width="280px">Acciones</th>-->
         </tr>
-        @foreach ($scores as $score)
+        @foreach ($prof_scoring as $score)
         <tr>
             <td class=" text-white">{{ $score->id }}</td>
             <td class=" text-white" >{{ $score->ci }}</td>
