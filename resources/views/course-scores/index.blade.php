@@ -29,7 +29,7 @@ y como se llamadan los valores y rutas, no tiene relacion con el proyecto-->
             <th class=" text-white">Cantidad Alumnos</th>
             <th class=" text-white">Tipo</th>
             <th class=" text-white">Horario</th>
-            <th width="280px" class=" text-white">>Acciones</th>
+            <th width="280px" class=" text-white"></th>
         </tr>
         @foreach ($scores as $score)
         <tr>
@@ -39,7 +39,7 @@ y como se llamadan los valores y rutas, no tiene relacion con el proyecto-->
             <td class=" text-white">{{ $score->phone_number }}</td>
             <td>
                 <form action="{{ route('course-scores.destroy',$score->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('course-scores.show',$score->id) }}">verr</a>
+                    <a class="btn btn-info" href="{{ route('course-scores.show',$score->id) }}">ver datos</a>
 
 
 

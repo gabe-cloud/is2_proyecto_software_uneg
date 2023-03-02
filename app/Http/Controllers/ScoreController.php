@@ -149,7 +149,13 @@ class ScoreController extends Controller
  
     public function index()
     {
-        $scores = Score::latest()->paginate(5);
+        $user = \Auth::user();
+        $id_user = $user->id;
+
+        $scores = Score::latest('scores.created_at')
+        ->join('courses', 'scores.course_id', '=', 'courses.id' )
+        ->where('courses.professor_id','=',$id_user)
+        ->paginate(5);
         return view('scores.index',compact('scores'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -162,7 +168,7 @@ class ScoreController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'id' => 'required',
+            //'id' => 'required',
             'course_id' => 'required',
             'description' => 'required',
             'student_id' => 'required',
