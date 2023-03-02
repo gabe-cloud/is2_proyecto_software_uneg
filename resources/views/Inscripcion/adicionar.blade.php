@@ -13,27 +13,36 @@
         <form action="{{route('inscripciones.save_adicion')}}" method="post">
             {{ csrf_field() }}
             
-            
+            <table class="table table-bordered text-white bg-secondary p-2">
+                <tr>
+                    <th>materia</th>
+                    <th>seccion</th>
+                </tr>
+                
             @foreach($nombre_asi as $asi)
-                    
-                <label><input type="checkbox" name="nombres[]" value="{{$asi[0]->course_type}}"> {{$asi[0]->course_type  }}
-                    <select name="seccion[]">
-                        <option value="no" selected>
-                            Elija la seccion 
-                        </option>
-                       @for($i = 1; $i<= $asi[0]->secciones; $i++)
-                            <option value="Seccion {{$i}}">
-                                Seccion {{"$i"}} 
+                <tr>
+                    <td>
+                        <input type="checkbox" name="nombres[]" value="{{$asi[0]->course_type}}"> {{$asi[0]->course_type  }}   
+                    </td>
+                    <td> 
+                        <select name="seccion[]">
+                            <option value="no" selected>
+                                Elija la seccion 
                             </option>
-                        @endfor
-                    </select>
-                    <br/>
-                </label>
+                            @for($i = 1; $i<= $asi[0]->secciones; $i++)
+                                <option value="Seccion {{$i}}">
+                                    Seccion {{"$i"}} 
+                                </option>
+                            @endfor
+                        </select>
+                    </td>
+                </tr>
+                
             @endforeach
-            <br/>
+            </table>
             
-            <input type="hidden" name="id_ins" value="{{$id_ins}}"/>
-            <input type="submit" name="submit" value="Enviar"/>
+            <input type="hidden" name="id_ins" value="{{$id_ins}}"/> <!--que es este input?-->
+            <input class="btn btn-primary m-2" type="submit" name="submit" value="Enviar"/>
         </form>
     </div>
     
