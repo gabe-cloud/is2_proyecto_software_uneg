@@ -42,7 +42,7 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                <li><a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                                <li><a class="nav-link text-white" href="{{ route('login') }}">{{ __('Acceder') }}</a></li>
                                 </li>
                             @endif
                         @else
@@ -58,7 +58,7 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
+                                            {{ __('Cerrar sesión') }}
                                         </a>
                                         @role('professor')
                                         <a class="dropdown-item" href="{{ route('course-scores.index') }}">Gestión de Asignaturas</a>

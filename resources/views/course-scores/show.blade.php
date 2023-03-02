@@ -3,6 +3,7 @@
 
 
 @section('content')
+<div class="container">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -24,7 +25,7 @@
     @endif
 
 
-    <table class="table table-bordered">
+    <table class="table bg-secondary p-2 table-bordered">
         <tr>
             <th class=" text-white">ID</th>
             <th class=" text-white">CI</th>
@@ -34,8 +35,8 @@
             <th class=" text-white">email</th>
             <th class=" text-white">materia</th>
             <th class=" text-white">nota</th>
-            <!--
-            <th class=" text-white" width="280px">Acciones</th>-->
+            <th class=" text-white" width="300px">Acciones</th>
+            
         </tr>
         @foreach ($prof_scoring as $score)
         <tr>
@@ -51,7 +52,7 @@
             <!--
             <td>
                 <form action="{{ route('course-scores.destroy',$score->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('course-scores.show',$score->id) }}">Crear/Modificar</a>
+                    <a class="btn btn-success" href="{{ route('course-scores.show',$score->id) }}">Crear/Modificar</a>
                     @can('score-edit')
                     <a class="btn btn-primary" href="{{ route('course-scores.edit',$score->id) }}">Editar</a>
                     @endcan
@@ -71,5 +72,5 @@
 
     
 
-
+</div>
 @endsection

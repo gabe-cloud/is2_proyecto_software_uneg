@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="text-center">
-                            <a class="btn btn-primary" href="{{ route('semesters.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('semesters.index') }}"> Atras</a>
                             <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                 </div>

@@ -5,6 +5,7 @@ y como se llamadan los valores y rutas, no tiene relacion con el proyecto-->
 
 
 @section('content')
+<div class="container">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -23,13 +24,14 @@ y como se llamadan los valores y rutas, no tiene relacion con el proyecto-->
     @endif
 
 
-    <table class="table table-bordered">
+    <table class="table bg-secondary p-2 table-bordered">
         <tr>
             <th class=" text-white">ID</th>
             <th class=" text-white">Cantidad Alumnos</th>
             <th class=" text-white">Tipo</th>
             <th class=" text-white">Horario</th>
-            <th width="280px" class=" text-white"></th>
+            <th width="280px" class=" text-white">Acciones</th>
+            
         </tr>
         @foreach ($prof_scoring as $score)
         <tr>
@@ -39,7 +41,8 @@ y como se llamadan los valores y rutas, no tiene relacion con el proyecto-->
             <td class=" text-white">{{ $score->entry_time }} a {{ $score->departure_time }}</td>
             <td>
                 <form action="{{ route('course-scores.destroy',$score->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('course-scores.show',$score->id) }}">ver datos</a>
+
+                    <a class="btn btn-success" href="{{ route('course-scores.show',$score->id) }}">ver</a>
 
 
 
@@ -52,5 +55,5 @@ y como se llamadan los valores y rutas, no tiene relacion con el proyecto-->
 
     
 
-
+</div>
 @endsection
