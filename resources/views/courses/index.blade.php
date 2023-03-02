@@ -57,7 +57,7 @@
 
     <div class="pull-right">
         @can('course-create')
-            <a class="btn btn-success" href="{{ route('courses.create') }}"> Agregar datos de una cuenta</a>
+            <a class="btn btn-success" href="{{ route('courses.create') }}"> Agregar Curso</a>
         @endcan
     </div>
 

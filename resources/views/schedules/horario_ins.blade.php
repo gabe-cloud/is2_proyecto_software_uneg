@@ -19,6 +19,9 @@ como prefieran.-->
             <p>{{ $message }}</p>
         </div>
     @endif
+    
+    
+@if(isset($schedules) && !empty($schedules))
 
     <table class="table table-bordered text-white bg-secondary p-2">
         <tr>
@@ -26,7 +29,6 @@ como prefieran.-->
             <th>Hora Entrada</th>
             <th>Hora Salida</th>
         </tr>
-        
         @foreach ($schedules as $key => $schedul)
         <tr>
             
@@ -35,8 +37,12 @@ como prefieran.-->
             <td>{{ $schedul->asignaturas_control_ins->horario->departure_time }}</td>
         </tr>
         @endforeach
+     @else
+        <h1>No tienes materias inscritas</h1>
+    @endif
     </table>
 </div>
+
 
 
 @endsection

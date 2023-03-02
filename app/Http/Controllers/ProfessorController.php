@@ -27,7 +27,7 @@ class ProfessorController extends Controller
     public function create()
     {
         $profesores = Professor::get();
-        $datos = Sacar_datos_roles('Profesor', $profesores);
+        $datos = Sacar_datos_roles('professor', $profesores);
         return view('professors.create', [
             'datos' => $datos
         ]);

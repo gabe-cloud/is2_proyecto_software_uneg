@@ -70,11 +70,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('notas/descripcion/{id}', [ScoreController::class,'ver_notas'])->name('notas.ver');
     Route::get('notas/constancia', [ScoreController::class,'constancia_notas'])->name('notas.constancia');
     Route::get('notas/ver_constancia', [ScoreController::class,'ver_constancia_notas'])->name('notas.ver_constancia');
-    
-    Route::resource('courses', CourseController::class);
-    Route::resource('scores', ScoreController::class);
-    Route::resource('sections', SectionController::class);
-    Route::resource('semesters', SemesterController::class);
     //Rutas del controlador de inscripciones
     Route::resource('incriptions', IncriptionsController::class);
     Route::get('inscripciones/delete/{id_control}/{id_ins}', [IncriptionsController::class,'delete'])->name('inscripciones.delete');

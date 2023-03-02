@@ -19,9 +19,11 @@ function mostrar_datos(){
     $id_user = $user->id;
     $estudiante = Student::find($id_user);
     $inscripcion = Incription::where('student_id', $estudiante->id)->first();
-    $asignaturas = $inscripcion->control_inscripcion_ins;
-   
-    return $asignaturas;
+    if ( $inscripcion!=null){
+        $asignaturas = $inscripcion->control_inscripcion_ins;    
+        return $asignaturas;
+    }
+    return null;
 }
 
 function asignaturas_carreras($id){
@@ -52,12 +54,13 @@ function save_control_inscripcion($estudiante, $nombres, $seccion, $id_inscripci
     $carrera_estudiante = $estudiante->career_id;
     $semestre_estudiante = $estudiante->semester_id;
     $cont=0;
-       
     for($i=0; $i < count($seccion); $i++){
             
         if($seccion[$i] != 'no'){
+            $out = new \Symfony\Component\Console\Output\ConsoleOutput();
+            $out->writeln("Hello from Terminal");
             //Se busca el id de la seccion
-            $seccion_id = Section:: where('career_id', $carrera_estudiante)->where('semesters_id', $semestre_estudiante)
+            $seccion_id = Section:: where('career_id', $estudiante->career_id)//->where('semesters_id', $semestre_estudiante) No recibe el id del semestre, necesitan arreglar esto.
             ->where('section_number', $seccion[$i])->first();
             //Se busa el id de la asignatura
             $asignatura = Course:: where('section_id', $seccion_id->id)->where('course_type', $nombres[$cont])->first();
