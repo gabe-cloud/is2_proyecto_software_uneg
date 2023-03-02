@@ -22,12 +22,13 @@
                     <div>
                         <h3>Registro de nueva nota</h3>
                     </div>
+                    <!--
                     <div class="col-md-12">
                         <div class="form-group">
                             <strong>Nota ID:</strong>
-                            <input type="text" name="id" class="form-control" placeholder="ID">
+                            <input type="text" name="id" class="form-control" placeholder="ID">   N
                         </div>
-                    </div>
+                    </div>-->  <!-- No tiene sentido pedir la id de la nota-->
                     <div class="col-md-12">
                         <div class="form-group">
                             <strong>Curso ID:</strong>
