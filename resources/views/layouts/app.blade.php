@@ -61,7 +61,7 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
                                             {{ __('Logout') }}
                                         </a>
                                         @role('professor')
-                                        <a class="dropdown-item" href="{{ route('course-scores.index') }}">Gestión notas</a>
+                                        <a class="dropdown-item" href="{{ route('course-scores.index') }}">Gestión de Asignaturas</a>
                                         @endrole
                                         @role('coordinator|Admin')
                                         
