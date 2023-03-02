@@ -33,6 +33,10 @@ class CreateAdminUserSeeder extends Seeder
         */
         $role = Role::create(['name' => 'Admin'])
         ->givePermissionTo([
+            'user-list',
+            'user-create',
+            'user-edit',
+            'user-delete',
             'role-list',
             'role-create',
             'role-edit',
