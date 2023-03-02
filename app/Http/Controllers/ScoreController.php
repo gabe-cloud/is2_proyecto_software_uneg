@@ -163,7 +163,6 @@ class ScoreController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'id' => 'required',
             'course_id' => 'required',
             'description' => 'required',
             'student_id' => 'required',

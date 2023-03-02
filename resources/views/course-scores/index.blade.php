@@ -30,7 +30,8 @@ y como se llamadan los valores y rutas, no tiene relacion con el proyecto-->
             <th class=" text-white">Cantidad Alumnos</th>
             <th class=" text-white">Tipo</th>
             <th class=" text-white">Horario</th>
-            <th width="280px" class=" text-white">Acciones</th>
+            <th width="100px" class=" text-white">Dia</th>
+            <th width="60px" class=" text-white">accion</th>
             
         </tr>
         @foreach ($prof_scoring as $score)
@@ -39,14 +40,13 @@ y como se llamadan los valores y rutas, no tiene relacion con el proyecto-->
             <td class=" text-white">{{ $score->student_count }}</td>
             <td class=" text-white">{{ $score->type }}</td>
             <td class=" text-white">{{ $score->entry_time }} a {{ $score->departure_time }}</td>
-            <td>
+            <td class=" text-white">{{ $score->day }}</td>
+             <td>
+               
                 <form action="{{ route('course-scores.destroy',$score->id) }}" method="POST">
-
                     <a class="btn btn-success" href="{{ route('course-scores.show',$score->id) }}">ver</a>
-
-
-
-                </form>
+                </form> 
+                
             </td>
         </tr>
         @endforeach
