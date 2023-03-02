@@ -34,8 +34,9 @@
             <th class=" text-white">Número de telefono</th>
             <th class=" text-white">email</th>
             <th class=" text-white">materia</th>
-            <th class=" text-white">nota</th>
-            <th class=" text-white" width="300px">Acciones</th>
+            <th class=" text-white">nota acumulada</th>
+            <th class=" text-white">num de notas</th>
+            <!--<th class=" text-white" width="300px">Acciones</th>-->
             
         </tr>
         @foreach ($prof_scoring as $score)
@@ -49,6 +50,7 @@
             <td class=" text-white">{{ $score->type }}</td>
             
             <td class=" text-white">{{ $score->score }}</td>
+            <td class=" text-white">{{ $score->score_count }}</td>
             <!--
             <td>
                 <form action="{{ route('course-scores.destroy',$score->id) }}" method="POST">
