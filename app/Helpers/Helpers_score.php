@@ -32,11 +32,11 @@ function mostrar_datos($id){
 function mostrar_datos_notas($id){
     
     $nombre_asignaturas = DB:: table('courses')
-    ->join('controls_incriptions', 'controls_incriptions.course_id', '=', 'courses.id' );
-    ->join('incriptions' , 'controls_incriptions.incription_id', '=', 'incriptions.id');
-    ->join('people', 'people.id', '=', 'incriptions.student_id'),
-    ->leftJoin('scores', 'scores.student_id', '=', 'people.id'),
-    ->selectraw('courses.id as id, '),
+    ->join('controls_incriptions', 'controls_incriptions.course_id', '=', 'courses.id' )
+    ->join('incriptions' , 'controls_incriptions.incription_id', '=', 'incriptions.id')
+    ->join('people', 'people.id', '=', 'incriptions.student_id')
+    ->leftJoin('scores', 'scores.student_id', '=', 'people.id')
+    ->selectraw('courses.id as id, ')
     ->get();
     
     return $nombre_asignaturas; 
