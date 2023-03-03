@@ -4,48 +4,50 @@
 como prefieran.-->
  <!-- Esta vista tiene el mismo funcionamiento de users/index se encarga de crear una tabla con los roles creados y da opcion de crear/editar/eliminar.-->
 @section('content')
-<div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2>Notas de la asignatura: {{$nombre_asig->course_type}}</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2>Notas de la asignatura: {{$nombre_asig->course_type}}</h2>
+            </div>
         </div>
     </div>
-</div>
 
 
-@if ($message = Session::get('success'))
-    <div class="alert alert-success">
-        <p>{{ $message }}</p>
-    </div>
-@endif
-
-<div class="row">
-    @if(isset($notas))
-        <table class="table table-bordered text-white bg-secondary p-2">
-            <tr>
-                <th>No</th>
-                <th>Descripcion</th>
-                <th>Ponderacion 20%</th>
-                <th>Fecha</th>
-            </tr>
-            
-            @foreach ($notas as $key => $nota)
-            <tr>
-                <td>{{ ++$i }}</td>
-                <td>{{ $nota->description }}</td>
-                <td>{{ $nota->score }}</td>
-                <td>{{ $nota->score_date }}</td>
-            </tr>
-            @endforeach
-            <tr>
-                <td>total</td>
-                <td>{{$total}}</td>
-            </tr>
-        </table>
-    @else
-    <div class="container">
-        <h1>No hay notas registradas en esta asignatura</h1>
-    </div>
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
     @endif
+
+    <div class="row">
+        @if(isset($notas))
+            <table class="table table-bordered text-white bg-secondary p-2">
+                <tr>
+                    <th>No</th>
+                    <th>Descripcion</th>
+                    <th>Ponderacion 20%</th>
+                    <th>Fecha</th>
+                </tr>
+                
+                @foreach ($notas as $key => $nota)
+                <tr>
+                    <td>{{ ++$i }}</td>
+                    <td>{{ $nota->description }}</td>
+                    <td>{{ $nota->score }}</td>
+                    <td>{{ $nota->score_date }}</td>
+                </tr>
+                @endforeach
+                <tr>
+                    <td>total</td>
+                    <td>{{$total}}</td>
+                </tr>
+            </table>
+        @else
+        <div class="container">
+            <h1>No hay notas registradas en esta asignatura</h1>
+        </div>
+        @endif
+    </div>
 </div>
 @endsection
