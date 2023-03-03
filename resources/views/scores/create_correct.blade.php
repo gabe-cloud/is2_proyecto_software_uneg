@@ -18,7 +18,7 @@
 
         <div class="container col-xs-3 col-sm-3 col-md-3 ">
             <div class="row justify-content-center">
-                <div class="card">
+                <div class="card bg-secondary p-2">
                     <div>
                         <h3>Registro de nueva nota</h3>
                     </div>
@@ -66,10 +66,8 @@
                         </div>
                     </div>
                     <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                    <div>
-                        <a class="btn btn-primary" href="{{ route('scores.index') }}"> Back</a>
+                        <a class="btn btn-primary" href="{{ route('scores.index') }}"> Atras</a>
+                        <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                 </div>
             </div>
