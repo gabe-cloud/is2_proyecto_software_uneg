@@ -29,7 +29,9 @@
             </div>
         </div>
     @else
+    <div class="container">
         <h1>No tienes materias inscritas</h1>
+    </div>
     @endif
     
 </div>

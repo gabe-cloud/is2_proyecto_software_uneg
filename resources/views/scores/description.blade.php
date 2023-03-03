@@ -43,7 +43,9 @@ como prefieran.-->
             </tr>
         </table>
     @else
+    <div class="container">
         <h1>No hay notas registradas en esta asignatura</h1>
+    </div>
     @endif
 </div>
 @endsection
