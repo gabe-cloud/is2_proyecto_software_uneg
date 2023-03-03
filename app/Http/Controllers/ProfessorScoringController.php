@@ -29,7 +29,7 @@ class ProfessorScoringController extends Controller
         $prof_scoring = DB:: table('courses')
             ->leftjoin('controls_incriptions', 'controls_incriptions.course_id', '=', 'courses.id')            
             ->leftjoin('schedules', 'schedules.id', '=', 'courses.schedules_id')            
-            ->selectraw("courses.id AS id, count(controls_incriptions.id) as student_count, courses.course_type as type,
+            ->selectraw("courses.id, courses.id AS id, count(controls_incriptions.id) as student_count, courses.course_type as type,
             schedules.entry_time as entry_time,  schedules.departure_time as departure_time, schedules.day as day")
             ->where('courses.professor_id', '=', $id_user)
             ->groupBy('courses.id')

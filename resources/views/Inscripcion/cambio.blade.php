@@ -29,7 +29,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('users.index') }}"> Atras</a>
+                <a class="btn btn-primary" href="{{ route('incriptions.index') }}"> Atras</a>
             </div>
         </div>
     </div>
