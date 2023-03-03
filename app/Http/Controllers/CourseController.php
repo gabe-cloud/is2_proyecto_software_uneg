@@ -22,7 +22,13 @@ class CourseController extends Controller
  
     public function index()
     {
-        $courses = Course::latest()->paginate(5);
+        $user = \Auth::user();
+        $id_user = $user->id;
+        if ($user->hasrole('professor')){
+            $courses = Course::latest()->where('courses.professor_id', '=', $id_user)->paginate(5);
+        }
+        else
+             $courses = Course::latest()->paginate(5);
         return view('courses.index',compact('courses'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }

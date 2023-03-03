@@ -19,7 +19,7 @@
 
         <div class="container col-xs-3 col-sm-3 col-md-3 ">
             <div class="row justify-content-center">
-                <div class="card">
+                <div class="card bg-secondary">
                     <div>
                         <h3>Menu de creación de nuevo curso</h3>
                     </div>
@@ -84,21 +84,21 @@
                         </div>
                     </div>
                     <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                    <div>
-                        <a class="btn btn-primary" href="{{ route('courses.index') }}"> Regresar</a>
+                            <a class="btn btn-primary" href="{{ route('courses.index') }}"> Atras</a>
+                            <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                 </div>
             </div>
         </div>
     </form>
 @else
+<div class="container">
     <h1>No es posible crear una Materia ya que hacen falta datos importantes como lo son: </h1>
     <p>Crear Horarios</p>
     <p>Crear Secciones</p>
     <p>Crear Profesores</p>
     <p>Crear Carreras</p>
+</div>   
 @endif
 
 @endsection

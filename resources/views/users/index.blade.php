@@ -1,5 +1,4 @@
 @extends('layouts.app') <!-- Se exporta la vista layouts-->
-
 <!-- Vista se encarga de mostrar todos los datos los usuarios registrados en una table-->
 @section('content')  
     <div class="container">
@@ -22,9 +21,9 @@
             <tr>
                 <th>No</th>
                 <th>Nombre</th>
-                <th>Email</th>
+                <th>Correo</th>
                 <th>Rol</th>
-                <th width="235px">Acciones</th>
+                <th width="250px">Acciones</th>
             </tr>
             <tbody>
                 @foreach ($data as $key => $user) <!--Funciona como un for-->

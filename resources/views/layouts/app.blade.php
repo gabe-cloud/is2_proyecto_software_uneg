@@ -42,7 +42,7 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                <li><a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                                <li><a class="nav-link text-white" href="{{ route('login') }}">{{ __('Acceder') }}</a></li>
                                 </li>
                             @endif
                         @else
@@ -58,27 +58,61 @@ les recomiendo llamen al css que elaboren y asi el css influye en todas las vist
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
+                                            {{ __('Cerrar sesión') }}
                                         </a>
-                                        <a class="dropdown-item" href="{{ route('users.index') }}">Gestión de Usuarios</a>
-                                        <a class="dropdown-item" href="{{ route('roles.index') }}">Gestión de Roles</a>
-                                        <a class="dropdown-item" href="{{ route('people.index') }}">Gestión de Personas</a>
-                                        <a class="dropdown-item" href="{{ route('coordinators.index') }}">Gestión de Coordinadores</a>
-                                        <a class="dropdown-item" href="{{ route('professors.index') }}">Gestión de Profesores</a>
-                                        <a class="dropdown-item" href="{{ route('students.index') }}">Gestión de Estudiantes</a> 
-                                        <a class="dropdown-item" href="{{ route('semesters.index') }}">Gestión de Semestres</a> 
+                                        @role('professor')
+                                        <a class="dropdown-item" href="{{ route('course-scores.index') }}">Gestión de Asignaturas</a>
+                                        @endrole
+                                        @role('coordinator|Admin')
+                                        
+                                            @role('Admin')    
+                                            <a class="dropdown-item" href="{{ route('users.index') }}">Gestión de Usuarios</a>
+                                            @endrole
+                                            @can('role-list')  
+                                            <a class="dropdown-item" href="{{ route('roles.index') }}">Gestión de Roles</a>
+                                            @endcan
+                                            @can('person-list')
+                                            <a class="dropdown-item" href="{{ route('people.index') }}">Gestión de Personas</a>
+                                            @endcan                                     
+                                            @can ('coordinator-list')
+                                            <a class="dropdown-item" href="{{ route('coordinators.index') }}">Gestión de Coordinadores</a>                                       
+                                            @endcan  
+                                            <a class="dropdown-item" href="{{ route('professors.index') }}">Gestión de Profesores</a>
+                                            @can ('student-list')
+                                            <a class="dropdown-item" href="{{ route('students.index') }}">Gestión de Estudiantes</a> 
+                                            @endcan  
+                                            <a class="dropdown-item" href="{{ route('semesters.index') }}">Gestión de Semestres</a> 
+                                            
+                                        @endrole
+
+                                        @can('schedule-list') 
                                         <a class="dropdown-item" href="{{ route('schedules.index') }}">Gestión de Horarios</a> 
+                                        @endcan
+
+                                        @can('career-list') 
                                         <a class="dropdown-item" href="{{ route('careers.index') }}">Gestión de Carreras</a>
+                                        @endcan
+
+                                        @can('section-list')
                                         <a class="dropdown-item" href="{{ route('sections.index') }}">Gestión de Secciones</a> 
-                                        <a class="dropdown-item" href="{{ route('courses.index') }}">Gestión de Cursos</a> 
+                                        @endcan
+
+                                        @can('course-list') 
+                                        <a class="dropdown-item" href="{{ route('courses.index') }}">Gestión de Cursos</a>
+                                        @endcan 
+
+                                        @can('score-list')                    
                                         <a class="dropdown-item" href="{{ route('scores.index') }}">Gestión de Notas</a>
+                                        @endcan
 
-                                        <a class="dropdown-item" href="{{ route('incriptions.index') }}">Ver datos</a>
+
+                                        @role('student')
+                                        
+                                        <a class="dropdown-item" href="{{ route('incriptions.index') }}">Ver datos</a>                                        
                                         <a class="dropdown-item" href="{{ route('incriptions.create') }}">Inscribir</a>
-                                        <a class="nav-link" href="{{ route('horario.mi_horario') }}">Horario clases</a>
-                        
+                                        <a class="nav-link" href="{{ route('horario.mi_horario') }}">Horario clases</a>                                       
                                         <a class="nav-link" href="{{ route('notas.notas_estudiantes') }}">Notas</a>
-
+                                        @endrole
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf

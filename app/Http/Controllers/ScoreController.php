@@ -140,10 +140,12 @@ class ScoreController extends Controller
 
     function __construct()
     {
-         $this->middleware('permission:score-list|score-create|score-edit|score-delete', ['only' => ['index','show', 'notas_estudiantes']]);
+         $this->middleware('permission:score-list|score-create|score-edit|score-delete', ['only' => ['index','show']]);
+         $this->middleware('role:student', ['only' => ['notas_estudiantes']]);
          $this->middleware('permission:score-create', ['only' => ['create','store']]);
          $this->middleware('permission:score-edit', ['only' => ['edit','update']]);
          $this->middleware('permission:score-delete', ['only' => ['destroy']]);
+         
     }
  
     public function index()
@@ -161,7 +163,6 @@ class ScoreController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'id' => 'required',
             'course_id' => 'required',
             'description' => 'required',
             'student_id' => 'required',

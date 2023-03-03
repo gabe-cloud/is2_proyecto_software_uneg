@@ -29,7 +29,7 @@ class CoordinatorController extends Controller
     public function create()
     {
         $cordinadores = Coordinator::get();
-        $datos = Sacar_datos_roles('Coordinador', $cordinadores);
+        $datos = Sacar_datos_roles('coordinator', $cordinadores);
         return view('coordinators.create',[
             'datos' => $datos
         ]);

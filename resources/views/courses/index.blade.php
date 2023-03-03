@@ -26,7 +26,7 @@
             <th>Carrera</th>
             <th>Horario</th>
             <th>Unidades de credito</th>
-            <th width="235px">Acciones</th>
+            <th width="250px">Acciones</th>
         </tr>
         @foreach ($courses as $course)
         <tr>
@@ -57,7 +57,7 @@
 
     <div class="pull-right">
         @can('course-create')
-            <a class="btn btn-success" href="{{ route('courses.create') }}"> Agregar datos de una cuenta</a>
+            <a class="btn btn-success" href="{{ route('courses.create') }}"> Agregar Curso</a>
         @endcan
     </div>
 

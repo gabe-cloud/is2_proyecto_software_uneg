@@ -25,7 +25,7 @@
             <th>Día</th>
             <th>Hora de entrada</th>
             <th>Hora de salida</th>
-            <th width="235px">Acciones</th>
+            <th width="250px">Acciones</th>
         </tr>
         @foreach ($schedules as $schedule)
         <tr>
