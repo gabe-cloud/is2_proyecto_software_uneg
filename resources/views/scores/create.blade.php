@@ -13,50 +13,26 @@
         </div>
     @endif
 
-    <form action="{{ route('scores.store') }}" method="POST">
+    <form action="{{ route('notas.poner_nota') }}" method="POST">
         @csrf
 
         <div class="container col-xs-3 col-sm-3 col-md-3 ">
             <div class="row justify-content-center">
                 <div class="card">
                     <div>
-                        <h3>Registro de nueva nota</h3>
-                    </div>
-                    <!--
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <strong>Nota ID:</strong>
-                            <input type="text" name="id" class="form-control" placeholder="ID">   N
-                        </div>
-                    </div>-->  <!-- No tiene sentido pedir la id de la nota-->
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <strong>Curso ID:</strong>
-                            <input type="text" name="course_id" class="form-control" placeholder="Curso ID">
-                        </div>
+                        <h3>Seleciione la asignatura en donde va a poner la nota</h3>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <strong>Descripcion:</strong>
-                            <input type="text" name="description" class="form-control" placeholder="Descriptcion">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <strong>Estudiante ID:</strong>
-                            <input type="text" name="student_id" class="form-control" placeholder="Estudiante ID">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <strong>Nota:</strong>
-                            <input  type="text" name="score" class="form-control" placeholder="Nota">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <strong>Fecha de nota:</strong>
-                            <input type="date" name="score_date" class="form-control">
+                            <strong>Asignatura:</strong>
+                            <select name="course_id" class="form-control">
+                                @foreach($asignaturas as $asig)
+                                    <option value="{{$asig->id}}"  selected >
+                                        {{$asig->course_type}} - {{$asig->seccion->section_number}}
+                                    </option>
+                                @endforeach
+                            </select>
+                            
                         </div>
                     </div>
                     <div class="text-center">

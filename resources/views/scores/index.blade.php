@@ -17,7 +17,9 @@
         </div>
     @endif
 
-
+    @if(isset($message))
+        <p>{{$message}}</p>
+    @endif
     <table class="table table-bordered text-white bg-secondary p-2">
         <tr>
             <th>ID</th>

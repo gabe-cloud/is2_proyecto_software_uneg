@@ -331,7 +331,7 @@ class IncriptionsController extends Controller
 
         $pdf = PDF::loadView('Inscripcion.constancia_ins', ['asignaturas' => $asignaturas, 'mis_datos' => $mis_datos]);
 
-        return $pdf->download('Inscripcion.constancia_ins');
+        return $pdf->download('Inscripcion.constancia_ins.pdf');
     }
 
     public function ver_constancia(){

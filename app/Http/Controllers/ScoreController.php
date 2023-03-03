@@ -83,11 +83,11 @@ class ScoreController extends Controller
 
             $pdf = PDF::loadView('scores.constancia_notas', ['notas' => $notas, 'mis_datos' => $mis_datos, 'nombre_asig' => $nombre_asig, 'i' => $i]);
 
-            return $pdf->download('Inscripcion.constancia_notas');
+            return $pdf->download('scores.constancia_notas.pdf');
         }else{
             $datos = mostrar_datos();
             
-            return view('scores.index', [
+            return view('scores.ver_nota_estudiante', [
                 'asignaturas' => $datos
             ])->with([
                 'message'=> 'No hay notas para mostrar'
@@ -128,7 +128,7 @@ class ScoreController extends Controller
         }else{
             $datos = mostrar_datos();
             
-            return view('scores.index', [
+            return view('scores.ver_nota_estudiante', [
                 'asignaturas' => $datos
             ])->with([
                 'message'=> 'No hay notas para mostrar'
@@ -157,11 +157,50 @@ class ScoreController extends Controller
     
     public function create()
     {
-        return view('scores.create');
+        $user = \Auth::user();
+        $asignaturas = Course::where('professor_id', $user->id)->get();
+        if($asignaturas){
+            return view('scores.create', [
+                'asignaturas' => $asignaturas
+            ]);
+        }else{
+            $scores = Score::latest()->paginate(5);
+            return view('scores.index',[
+                'scores' => $scores
+            ])->with('message', 'Este Profesor no esta dando clases');
+        }
+        
     }
     
+    public function poner_nota(Request $request){
+        request()->validate([
+            'course_id' => 'required'
+        ]);
+
+        $course_id = (int) $request->input('course_id');
+        $nombre_asig = Course::find($course_id);
+        $inscritos = Controls_incription::where('course_id', $course_id)->get();
+
+        if($inscritos){
+            return view('scores.create_correct', [
+                'inscritos' => $inscritos,
+                'course_id' => $course_id,
+                'nombre_asig' => $nombre_asig->course_type
+            ]);
+        }else{
+            $user = \Auth::user();
+            $asignaturas = Course::where('professor_id', $user->id)->get();
+            return view('scores.create', [
+                'asignaturas' => $asignaturas
+            ]);
+        
+        }
+
+    }
+
     public function store(Request $request)
     {
+        
         request()->validate([
             'course_id' => 'required',
             'description' => 'required',
