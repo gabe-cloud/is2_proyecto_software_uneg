@@ -17,7 +17,7 @@ class ScheduleController extends Controller
   
     function __construct()
     {
-         $this->middleware('role:professor|permission:schedule-list|schedule-create|schedule-edit|schedule-delete', ['only' => ['index','show']]);
+         $this->middleware('permission:schedule-list|schedule-create|schedule-edit|schedule-delete', ['only' => ['index','show']]);
          $this->middleware('role:student', ['only' => ['horario_ins']]);
 
          $this->middleware('permission:schedule-create', ['only' => ['create','store']]);

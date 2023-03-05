@@ -14,25 +14,19 @@
 
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Horario ID:</strong>
-                {{ $schedule->id }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-auto col-sm-auto col-md-auto border border-info p-2">
             <div class="form-group">
                 <strong>Dia:</strong>
                 {{ $schedule->day }}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-auto col-sm-auto col-md-auto border border-info p-2">
             <div class="form-group">
                 <strong>Hora entrada:</strong>
                 {{ $schedule->entry_time }}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-auto col-sm-auto col-md-auto border border-info p-2">
             <div class="form-group">
                 <strong>Hora Salida:</strong>
                 {{ $schedule->departure_time }}

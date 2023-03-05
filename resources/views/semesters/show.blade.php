@@ -14,13 +14,13 @@
 
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-auto col-sm-auto col-md-auto border border-info p-2">
             <div class="form-group">
                 <strong>Semestre ID:</strong>
                 {{ $semester->id }}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-auto col-sm-auto col-md-auto border border-info p-2">
             <div class="form-group">
                 <strong>Número de semestre:</strong>
                 {{ $semester->semester_number }}

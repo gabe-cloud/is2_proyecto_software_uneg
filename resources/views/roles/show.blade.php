@@ -17,13 +17,13 @@ como prefieran.-->
 
 
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="col-xs-auto col-sm-auto col-md-auto border border-info p-2">
         <div class="form-group">
             <strong>Rol:</strong>
             {{ $role->name }}
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="col-xs-auto col-sm-auto col-md-auto border border-info p-2">
         <div class="form-group">
             <strong>Permisos de Rol:</strong>
             @if(!empty($rolePermissions))

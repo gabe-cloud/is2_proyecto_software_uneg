@@ -14,37 +14,37 @@
 
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-auto col-sm-auto col-md-auto border border-info p-2">
             <div class="form-group">
                 <strong>Nota ID:</strong>
                 {{ $score->id }}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-auto col-sm-auto col-md-auto border border-info p-2">
             <div class="form-group">
                 <strong>Curso ID:</strong>
                 {{ $score->course_id }}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-auto col-sm-auto col-md-auto border border-info p-2">
             <div class="form-group">
                 <strong>Descripcion:</strong>
                 {{ $score->description }}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-auto col-sm-auto col-md-auto border border-info p-2">
             <div class="form-group">
                 <strong>Estudiante ID:</strong>
                 {{ $score->student_id }}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-auto col-sm-auto col-md-auto border border-info p-2">
             <div class="form-group">
                 <strong>Nota:</strong>
                 {{ $score->score_date }}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-auto col-sm-auto col-md-auto border border-info p-2">
             <div class="form-group">
                 <strong>Fecha de nota:</strong>
                 {{ $score->status }}

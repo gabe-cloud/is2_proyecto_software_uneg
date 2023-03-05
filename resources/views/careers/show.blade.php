@@ -13,30 +13,29 @@
     </div>
 
 
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="row mt-2">
+        <div class="col-xs-auto col-sm-auto col-md-auto border border-info p-2">
             <div class="form-group">
                 <strong>Carrera ID:</strong>
                 {{ $career->id }}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-auto col-sm-auto col-md-auto border border-info p-2">
             <div class="form-group">
                 <strong>Coordinador</strong>
                 {{ $career->coordinador->datos->name }} {{ $career->coordinador->datos->last_name }}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-auto col-sm-auto col-md-auto border border-info p-2">
             <div class="form-group">
                 <strong>Tipo:</strong>
                 {{ $career->career_type }}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-auto col-sm-auto col-md-auto border border-info p-2">
             <div class="form-group">
                 <strong>Nombre de carrera:</strong>
                 {{ $career->name }}
             </div>
-        </div>  
-    </div>
+        </div>
 @endsection
